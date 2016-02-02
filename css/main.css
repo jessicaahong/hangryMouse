@@ -40,20 +40,7 @@ margin-left: 80px;
     background: #EA242F;
 }
 
-#mouse {
-	height: 50px;
-	width: 50px;
-	top: 150px;
-	right: 75px;
-	position: absolute;
-}
-#mouseImage{
-	height: 100%;
-	width: 100%;
-	z-index: 3;
-}
 #map {
-/*	background-image: url('../map.png');*/
 	height: 800px;
 	width: 800px;
 	margin: 0 auto;
@@ -86,15 +73,95 @@ margin-left: 80px;
 #title {
 	font-size: 30px;
 }
+
+/*NODE DIV CSS*/
+#embarcadero {
+	height: 17px;
+	width: 17px;
+	background: red;
+	position: absolute;
+	top: 168px;
+	right: 80px;
+}
+#northBeach {
+	height: 17px;
+	width: 17px;
+	background: red;
+	position: absolute;
+	top: 70px;
+	right: 170px;
+}
 #wharf {
-	height: 15px;
-	width: 15px;
+	height: 17px;
+	width: 17px;
+	background: red;
+	position: absolute;
+	top: 70px;
+	right: 170px;
+}
+#marina {
+	height: 17px;
+	width: 17px;
+	background: red;
+	position: absolute;
+	top: 70px;
+	right: 170px;
+}
+#mtZion {
+	height: 17px;
+	width: 17px;
+	background: red;
+	position: absolute;
+	top: 70px;
+	right: 170px;
+}
+#divisadero {
+	height: 17px;
+	width: 17px;
+	background: red;
+	position: absolute;
+	top: 70px;
+	right: 170px;
+}
+#castro {
+	height: 17px;
+	width: 17px;
+	background: red;
+	position: absolute;
+	top: 70px;
+	right: 170px;
+}
+#sixteenthSt {
+	height: 17px;
+	width: 17px;
+	background: red;
+	position: absolute;
+	top: 70px;
+	right: 170px;
+}
+#soma {
+	height: 17px;
+	width: 17px;
 	background: red;
 	position: absolute;
 	top: 70px;
 	right: 170px;
 }
 
+
+/*MOUSE DIV CSS*/
+#mouse {
+	height: 50px;
+	width: 50px;
+	top: -40px;
+	right: 650px;
+	position: absolute;
+}
+#mouseImage{
+	height: 100%;
+	width: 100%;
+	z-index: 3;
+}
 
 /*@ 650
 {
