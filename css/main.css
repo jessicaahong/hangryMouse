@@ -43,7 +43,6 @@ margin-left: 80px;
 #map {
 	height: 800px;
 	width: 800px;
-	margin: 0 auto;
 	position: relative;
 	margin-left: 80px;
 	z-index: 0;
@@ -75,6 +74,7 @@ margin-left: 80px;
 }
 
 /*NODE DIV CSS*/
+/*Orange line prize locations and transfer stations*/
 #embarcadero {
 	height: 17px;
 	width: 17px;
@@ -88,8 +88,8 @@ margin-left: 80px;
 	width: 17px;
 	background: red;
 	position: absolute;
-	top: 70px;
-	right: 170px;
+	top: 107px;
+	right: 135px;
 }
 #wharf {
 	height: 17px;
@@ -104,49 +104,51 @@ margin-left: 80px;
 	width: 17px;
 	background: red;
 	position: absolute;
-	top: 70px;
-	right: 170px;
+	top: 87px;
+	right: 326px;
 }
 #mtZion {
 	height: 17px;
 	width: 17px;
 	background: red;
 	position: absolute;
-	top: 70px;
-	right: 170px;
+	top: 240px;
+	right: 326px;
 }
 #divisadero {
 	height: 17px;
 	width: 17px;
 	background: red;
 	position: absolute;
-	top: 70px;
-	right: 170px;
+	top: 290px;
+	right: 326px;
 }
 #castro {
 	height: 17px;
 	width: 17px;
 	background: red;
 	position: absolute;
-	top: 70px;
-	right: 170px;
+	top: 412px;
+	right: 310px;
 }
 #sixteenthSt {
 	height: 17px;
 	width: 17px;
 	background: red;
 	position: absolute;
-	top: 70px;
-	right: 170px;
+	top: 393px;
+	right: 214px;
 }
 #soma {
 	height: 17px;
 	width: 17px;
 	background: red;
 	position: absolute;
-	top: 70px;
-	right: 170px;
+	top: 266px;
+	right: 103px;
 }
+
+/*red line prize destinations and transfer stations*/
 
 
 /*MOUSE DIV CSS*/

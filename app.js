@@ -1,7 +1,9 @@
 function init(){
 	//things that you want to happen once page loads
 	console.log('working');
-	$('button').on('click', newGame);
+	//take next line out eventually, and un comment line after that
+		loadClickEventListeners();
+	// $('button').on('click', newGame);
 	//eventually run functions that add animations to mouse (nose twitch)
 }
 
@@ -23,7 +25,7 @@ function loadClickEventListeners() {
 function mouseJump(targetElement) {
 	var latNum = (parseInt($(targetElement).css('top'))-15);
 	var newMouseLatitude = latNum.toString() + "px";
-	var longNum = (parseInt($(targetElement).css('right'))-12);
+	var longNum = (parseInt($(targetElement).css('right'))-8);
 	var newMouseLongitude = longNum.toString() + "px";
 	$('#mouse').css({'top' : newMouseLatitude, 'right' : newMouseLongitude});
 }
