@@ -1,0 +1,102 @@
+body {
+	background: #19A69D;
+}
+button {
+	padding: 8px 8px;
+	font-size: 14px;
+	background: white;
+	border: 1px black solid;
+}
+button:hover {
+	color: #EA242F;
+	background: #E7E9E8;
+	border: 0;
+}
+button:focus {
+	outline: 0;
+}
+.instructions{
+margin-left: 80px;
+}
+.text { 
+	font-family: 'Oxygen', sans-serif;
+}
+#gameName {
+	color: white;
+	font-size: 45px;
+   	padding: 0 20px;
+	-webkit-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+    transform: rotate(270deg);
+    transform-origin: right top;
+    position: fixed;
+    top: 0;
+    right: 100%;
+    width: 600px;
+    text-align: center;
+    vertical-align: middle;
+    background: #EA242F;
+}
+
+#mouse {
+	height: 50px;
+	width: 50px;
+	top: 150px;
+	right: 75px;
+	position: absolute;
+}
+#mouseImage{
+	height: 100%;
+	width: 100%;
+	z-index: 3;
+}
+#map {
+/*	background-image: url('../map.png');*/
+	height: 800px;
+	width: 800px;
+	margin: 0 auto;
+	position: relative;
+	margin-left: 80px;
+	z-index: 0;
+}
+
+#muniImage {
+	height: 100%;
+	width: 100%;
+	position: relative;
+}
+
+#muniLogo {
+	width: 60px;
+	display: inline-block;
+}
+#sushi {
+	height: 50px;
+	width: 50px;
+	position: absolute;
+	top: 190px;
+	right: 275px;
+}
+#sushiImage{
+	height: 100%;
+	width: 100%;
+}
+#title {
+	font-size: 30px;
+}
+#wharf {
+	height: 15px;
+	width: 15px;
+	background: red;
+	position: absolute;
+	top: 70px;
+	right: 170px;
+}
+
+
+/*@ 650
+{
+	#gameName needs to shrink text size so it doesn't break into two lines
+}*/

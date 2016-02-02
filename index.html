@@ -1,1 +1,55 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>hangry mouse</title>
+	<!-- jQUERY library-->
+	<script src="http://code.jquery.com/jquery.js"></script>
+	<!-- BOOTSTRAP JS-->
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<!-- APPLICATION JS -->
+	<script src="app.js"></script>
+	<!-- RESET CSS -->
+<!-- 	<link rel="stylesheet" href="css/reset.css">
+ -->	<!-- APPLICATION CSS -->
+	<link rel="stylesheet" href="css/main.css">
+<!-- 	GOOGLE FONTS -->
+	<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+	<!-- BOOTSTRAP CSS-->
+<!-- 	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+ --></head>
+<body>
+<div class="container">
+	<div id="gameName" class="text">
+		hungry mouse rides muni
+		<img id="muniLogo" src="munilogo.png">
+	</div>
+	<div class="instructions text">
+		<h2 id="title">help the mouse ride magical muni to find his next meal!</h2>
+		<p><b>instructions:</b>
+		<br>click the new game button to start a new adventure at the Embarcadero muni stop.
+		<br>a hungry mouse is a hangry mouse! get him to his next meal pronto.
+		<br>click on different muni stations to navigate our hero from stop to stop.
+		<br>you cannot switch from one muni line to another without first visiting their shared transfer station.
+		</p>
+		<div id="winnerText">
+		</div>
+		<button class="text">new game</button>
+	</div>
+	<div id="map">
+			<img id="muniImage" src="map.png">
+			<div id="mouse">
+				<img id="mouseImage" src="smallmouse.png">
+			</div>
+			<div id="sushi">
+				<img id="sushiImage" src="sushi.png">
+			</div>
+			<div id="wharf">
+			</div>
+	</div>
+</div>
+</body>
+ <script type="text/javascript">
+ init();
+</script>
+</html>
