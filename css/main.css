@@ -74,7 +74,8 @@ margin-left: 80px;
 }
 
 /*NODE DIV CSS*/
-/*Orange line prize locations and transfer stations*/
+/*Organized by order of colors of the rainbow, no repeats*/
+/*red line prize destinations and transfer stations*/
 #embarcadero {
 	height: 17px;
 	width: 17px;
@@ -83,6 +84,57 @@ margin-left: 80px;
 	top: 168px;
 	right: 80px;
 }
+#montgomery {
+	height: 17px;
+	width: 17px;
+	background: red;
+	position: absolute;
+	top: 205px;
+	right: 114px;
+}
+#powell {
+	height: 17px;
+	width: 17px;
+	background: red;
+	position: absolute;
+	top: 240px;
+	right: 147px;
+}
+#civicCenter {
+	height: 30px;
+	width: 27px;
+	background: red;
+	position: absolute;
+	top: 270px;
+	right: 187px;
+}
+#vanNess {
+	height: 30px;
+	width: 27px;
+	background: red;
+	position: absolute;
+	top: 320px;
+	right: 214px;
+}
+#twentyFourthSt {
+	height: 17px;
+	width: 17px;
+	background: red;
+	position: absolute;
+	top: 490px;
+	right: 214px;
+}
+#balboaPark {
+	height: 17px;
+	width: 17px;
+	background: red;
+	position: absolute;
+	top: 729px;
+	right: 372px;
+}
+
+/*Orange line prize locations and transfer stations*/
+
 #northBeach {
 	height: 17px;
 	width: 17px;
@@ -148,8 +200,114 @@ margin-left: 80px;
 	right: 103px;
 }
 
-/*red line prize destinations and transfer stations*/
+/*Yellow line prize locations and transfer stations*/
+#candlestick {
+	height: 17px;
+	width: 17px;
+	background: red;
+	position: absolute;
+	top: 742px;
+	right: 90px;
+}
+#dogpatch {
+	height: 17px;
+	width: 17px;
+	background: red;
+	position: absolute;
+	top: 435px;
+	right: 35px;
+}
+#fourthAndKing {
+	height: 17px;
+	width: 17px;
+	background: red;
+	position: absolute;
+	top: 302px;
+	right: 70px;
+}
+#chinatown {
+	height: 17px;
+	width: 17px;
+	background: red;
+	position: absolute;
+	top: 167px;
+	right: 158px;
+}
+#polk {
+	height: 17px;
+	width: 17px;
+	background: red;
+	position: absolute;
+	top: 186px;
+	right: 238px;
+}
+#japantown {
+	height: 17px;
+	width: 17px;
+	background: red;
+	position: absolute;
+	top: 240px;
+	right: 288px;
+}
+#clement {
+	height: 17px;
+	width: 17px;
+	background: red;
+	position: absolute;
+	top: 272px;
+	right: 524px;
+}
+#landsEnd {
+	height: 17px;
+	width: 17px;
+	background: red;
+	position: absolute;
+	top: 338px;
+	right: 738px;
+}
 
+/*Green line prize locations and transfer stations*/
+#nineteenthSt {
+	height: 17px;
+	width: 17px;
+	background: red;
+	position: absolute;
+	top: 425px;
+	right: 545px;
+}
+#stonestown {
+	height: 17px;
+	width: 17px;
+	background: red;
+	position: absolute;
+	top: 693px;
+	right: 533px;
+}
+/*Blue line prize locations and transfer stations*/
+#union {
+	height: 17px;
+	width: 17px;
+	background: red;
+	position: absolute;
+	top: 131px;
+	right: 236px;
+}
+#outerSunset {
+	height: 17px;
+	width: 17px;
+	background: red;
+	position: absolute;
+	top: 425px;
+	right: 652px;
+}
+#breakers {
+	height: 17px;
+	width: 17px;
+	background: red;
+	position: absolute;
+	top: 423px;
+	right: 713px;
+}
 
 /*MOUSE DIV CSS*/
 #mouse {

@@ -23,9 +23,14 @@ function loadClickEventListeners() {
 
 
 function mouseJump(targetElement) {
+	//get top coordinate of clicked muni station div
+	//shift position 15 pixels to the right so you center the mouse around the node
 	var latNum = (parseInt($(targetElement).css('top'))-15);
 	var newMouseLatitude = latNum.toString() + "px";
+	//get right coordinate of clicked muni station div
+	//shift position 8 pixels up so you center the mouse around the node
 	var longNum = (parseInt($(targetElement).css('right'))-8);
 	var newMouseLongitude = longNum.toString() + "px";
+	//set mouse position so that it now appears at the clicked muni station
 	$('#mouse').css({'top' : newMouseLatitude, 'right' : newMouseLongitude});
 }
