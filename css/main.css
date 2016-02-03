@@ -114,6 +114,14 @@ margin-left: 80px;
 	background: red;
 	position: absolute;
 	top: 320px;
+	right: 216px;
+}
+#sixteenthSt {
+	height: 17px;
+	width: 17px;
+	background: red;
+	position: absolute;
+	top: 393px;
 	right: 214px;
 }
 #twentyFourthSt {
@@ -182,14 +190,6 @@ margin-left: 80px;
 	position: absolute;
 	top: 412px;
 	right: 310px;
-}
-#sixteenthSt {
-	height: 17px;
-	width: 17px;
-	background: red;
-	position: absolute;
-	top: 393px;
-	right: 214px;
 }
 #soma {
 	height: 17px;
