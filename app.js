@@ -1,26 +1,39 @@
 function init(){
 	//things that you want to happen once page loads
-	console.log('working');
-	//take next line out eventually, and un comment line after that
-		loadClickEventListeners();
-	// $('button').on('click', newGame);
-	//eventually run functions that add animations to mouse (nose twitch)
+	//make newgame button clickable so you can start a new game
+	$('button').on('click', newGame);
 }
 
 function newGame() {
+	//make nodes clickable
 	loadClickEventListeners();
-	//run function that
-		//has mouse fall on to new location
-		//has prize appear at new location
+	//select new gameboard randomly, and generates new gameboard
+	selectRandomAdventure();
+	setupAdventureOnMap();
+}
+
+function selectRandomAdventure() {
+
+}
+
+function setupAdventureOnMap() {
+	//edit css to set mouse's new location (top and right css)
+	//display mouse at new location
+	$('#mouse').css({'display' : 'block', 'position' : 'absolute'});
+	//has prize appear at new location
+		//tailors adventureDetails text to new adventure
+		$('#adventureDetails').html('direct mouse to japantown for some sushi!');
+		//makes adventuresDetails text visible
+			$('#adventureDetails').css({'display': 'inline-block'});
 }
 
 
+//functions that make mouse mobile
 function loadClickEventListeners() {
 	$('.munistop').on('click', function() {
 		mouseJump(event.target);
 	});
 }
-
 
 function mouseJump(targetElement) {
 	//get top coordinate of clicked muni station div
@@ -46,11 +59,21 @@ function mouseJump(targetElement) {
 			$('#mouse').removeClass();
 			//add line classes of new location to mouse with .addClass()
 			$('#mouse').addClass(classList);
-			//get rid of wrong move text decorations
-			$('#wrongMove').css({'color' : 'black', 'font-size' : '16px'});
+			//get rid of wrong move text decorations and exclamation point
+			$('#invalidMove').css({'color' : 'black', 'font-size' : '16px'});
+			$('#exclamationPointDiv').css({'display' : 'none'});
 	//else if they do not belong to the same line, alert that they must go to transfer station
 	} else {
-		$('#wrongMove').css({'color' : '#EA242F', 'font-size' : '20px'});
+		//turn text in instructions red
+		$('#invalidMove').css({'color' : '#EA242F', 'font-size' : '16px'});
+		//have an exclamation point pop up over the mouse to alert an invalid move
+		var currentMouseLatitude = (parseInt($('#mouse').css('top'))-42);
+		var exclamationPointLatitude = currentMouseLatitude.toString() + 'px';
+		console.log(exclamationPointLatitude);
+		var currentMouseLongitude = (parseInt($('#mouse').css('right')) + 2);
+		var exclamationPointLongitude = currentMouseLongitude.toString() + 'px';
+		console.log(exclamationPointLongitude);
+		$('#exclamationPointDiv').css({'display' : 'block', 'top': exclamationPointLatitude, 'right' : exclamationPointLongitude});
 	}
 
 }

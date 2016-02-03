@@ -1,26 +1,34 @@
 body {
 	background: #19A69D;
 }
+
+/*Text content CSS */
 button {
 	padding: 8px 8px;
 	font-size: 14px;
 	background: white;
 	border: 1px black solid;
 	margin: 10px 0px;
+	display: inline-block;
 }
 button:hover {
 	color: #EA242F;
 	background: #E7E9E8;
-	border: 0;
+	border: 1px #19A69D solid;
 }
 button:focus {
 	outline: 0;
 }
 .instructions{
-margin-left: 100px;
+	margin-left: 100px;
 }
 .text { 
 	font-family: 'Oxygen', sans-serif;
+}
+#adventureDetails {
+	margin: 0px 10px;
+/*	Must later assign this when writing newGame function:*/
+	display: inline-block;
 }
 #gameName {
 	color: white;
@@ -40,6 +48,18 @@ margin-left: 100px;
     vertical-align: middle;
     background: #EA242F;
 }
+#muniLogo {
+	width: 60px;
+	display: inline-block;
+}
+#title {
+	font-size: 30px;
+}
+#wrongMoveAlert {
+	color: red;
+}
+
+/*Map CSS*/
 #map {
 	height: 800px;
 	width: 800px;
@@ -54,10 +74,7 @@ margin-left: 100px;
 	position: relative;
 }
 
-#muniLogo {
-	width: 60px;
-	display: inline-block;
-}
+/*Prize div CSS Below*/
 #sushi {
 	height: 50px;
 	width: 50px;
@@ -68,12 +85,6 @@ margin-left: 100px;
 #sushiImage{
 	height: 100%;
 	width: 100%;
-}
-#title {
-	font-size: 30px;
-}
-#wrongMoveAlert {
-	color: red;
 }
 
 /*NODE DIV CSS*/
@@ -490,7 +501,7 @@ margin-left: 100px;
 }
 #westPortal {
 	height: 17px;
-	width: 17px;
+	width: 17px;4
 	/*background: red;*/
 	position: absolute;
 	top: 582px;
@@ -503,7 +514,8 @@ margin-left: 100px;
 	width: 50px;
 	top: -40px;
 	right: 650px;
-	position: absolute;
+	position: absolute
+	display: none;
 }
 #mouseImage{
 	height: 100%;
@@ -511,6 +523,19 @@ margin-left: 100px;
 	z-index: 3;
 }
 
+/*exclamationPoint CSS*/
+#exclamationPointDiv {
+	height: 32px;
+	width: 35px;
+	display: none;
+	position: absolute;
+	top: 100px;
+	right: 700px;
+}
+#exclamationPointImage {
+	height: 100%;
+	width:100%;
+}
 /*@ 650
 {
 	#gameName needs to shrink text size so it doesn't break into two lines
