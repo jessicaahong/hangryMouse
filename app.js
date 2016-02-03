@@ -46,9 +46,11 @@ function mouseJump(targetElement) {
 			$('#mouse').removeClass();
 			//add line classes of new location to mouse with .addClass()
 			$('#mouse').addClass(classList);
+			//get rid of wrong move text decorations
+			$('#wrongMove').css({'color' : 'black', 'font-size' : '16px'});
 	//else if they do not belong to the same line, alert that they must go to transfer station
 	} else {
-		alert('you must visit a transfer stations before switching muni lines!');
+		$('#wrongMove').css({'color' : '#EA242F', 'font-size' : '20px'});
 	}
 
 }

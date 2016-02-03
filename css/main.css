@@ -6,6 +6,7 @@ button {
 	font-size: 14px;
 	background: white;
 	border: 1px black solid;
+	margin: 10px 0px;
 }
 button:hover {
 	color: #EA242F;
@@ -16,7 +17,7 @@ button:focus {
 	outline: 0;
 }
 .instructions{
-margin-left: 80px;
+margin-left: 100px;
 }
 .text { 
 	font-family: 'Oxygen', sans-serif;
@@ -24,7 +25,7 @@ margin-left: 80px;
 #gameName {
 	color: white;
 	font-size: 45px;
-   	padding: 0 20px;
+   	padding: 0px 20px 10px 20px;
 	-webkit-transform: rotate(270deg);
     -moz-transform: rotate(270deg);
     -o-transform: rotate(270deg);
@@ -39,13 +40,12 @@ margin-left: 80px;
     vertical-align: middle;
     background: #EA242F;
 }
-
 #map {
 	height: 800px;
 	width: 800px;
 	position: relative;
-	margin-left: 80px;
 	z-index: 0;
+	margin-left: 100px;
 }
 
 #muniImage {
@@ -72,6 +72,9 @@ margin-left: 80px;
 #title {
 	font-size: 30px;
 }
+#wrongMoveAlert {
+	color: red;
+}
 
 /*NODE DIV CSS*/
 /*Organized by order of colors of the rainbow, no repeats*/
@@ -79,7 +82,7 @@ margin-left: 80px;
 #embarcadero {
 	height: 17px;
 	width: 17px;
-	background: red;
+	/*background: red;*/
 	position: absolute;
 	top: 168px;
 	right: 80px;
@@ -87,7 +90,7 @@ margin-left: 80px;
 #montgomery {
 	height: 17px;
 	width: 17px;
-	background: red;
+	/*background: red;*/
 	position: absolute;
 	top: 205px;
 	right: 114px;
@@ -95,7 +98,7 @@ margin-left: 80px;
 #powell {
 	height: 17px;
 	width: 17px;
-	background: red;
+	/*background: red;*/
 	position: absolute;
 	top: 240px;
 	right: 147px;
@@ -103,7 +106,7 @@ margin-left: 80px;
 #civicCenter {
 	height: 30px;
 	width: 27px;
-	background: red;
+	/*background: red;*/
 	position: absolute;
 	top: 270px;
 	right: 187px;
@@ -111,7 +114,7 @@ margin-left: 80px;
 #vanNess {
 	height: 30px;
 	width: 27px;
-	background: red;
+	/*background: red;*/
 	position: absolute;
 	top: 320px;
 	right: 216px;
@@ -119,7 +122,7 @@ margin-left: 80px;
 #sixteenthSt {
 	height: 17px;
 	width: 17px;
-	background: red;
+	/*background: red;*/
 	position: absolute;
 	top: 393px;
 	right: 214px;
@@ -127,15 +130,23 @@ margin-left: 80px;
 #twentyFourthSt {
 	height: 17px;
 	width: 17px;
-	background: red;
+	/*background: red;*/
 	position: absolute;
 	top: 490px;
 	right: 214px;
 }
+#glenPark {
+	height: 17px;
+	width: 17px;
+	/*background: red;*/
+	position: absolute;
+	top: 643px;
+	right: 293px;
+}
 #balboaPark {
 	height: 17px;
 	width: 17px;
-	background: red;
+	/*background: red;*/
 	position: absolute;
 	top: 729px;
 	right: 372px;
@@ -146,7 +157,7 @@ margin-left: 80px;
 #northBeach {
 	height: 17px;
 	width: 17px;
-	background: red;
+	/*background: red;*/
 	position: absolute;
 	top: 107px;
 	right: 135px;
@@ -154,23 +165,39 @@ margin-left: 80px;
 #wharf {
 	height: 17px;
 	width: 17px;
-	background: red;
+	/*background: red;*/
 	position: absolute;
 	top: 70px;
 	right: 170px;
 }
+#cowHollow {
+	height: 17px;
+	width: 17px;
+	/*background: red;*/
+	position: absolute;
+	top: 70px;
+	right: 220px;
+}
 #marina {
 	height: 17px;
 	width: 17px;
-	background: red;
+	/*background: red;*/
 	position: absolute;
 	top: 87px;
+	right: 326px;
+}
+#pacHeights {
+	height: 17px;
+	width: 17px;
+	/*background: red;*/
+	position: absolute;
+	top: 173px;
 	right: 326px;
 }
 #mtZion {
 	height: 17px;
 	width: 17px;
-	background: red;
+	/*background: red;*/
 	position: absolute;
 	top: 240px;
 	right: 326px;
@@ -178,7 +205,7 @@ margin-left: 80px;
 #divisadero {
 	height: 17px;
 	width: 17px;
-	background: red;
+	/*background: red;*/
 	position: absolute;
 	top: 290px;
 	right: 326px;
@@ -186,41 +213,105 @@ margin-left: 80px;
 #castro {
 	height: 17px;
 	width: 17px;
-	background: red;
+	/*background: red;*/
 	position: absolute;
 	top: 412px;
 	right: 310px;
 }
+#designDistrict {
+	height: 17px;
+	width: 17px;
+	/*background: red;*/
+	position: absolute;
+	top: 368px;
+	right: 146px;
+}
+#folsom {
+	height: 17px;
+	width: 17px;
+	/*background: red;*/
+	position: absolute;
+	top: 314px;
+	right: 146px;
+}
 #soma {
 	height: 17px;
 	width: 17px;
-	background: red;
+	/*background: red;*/
 	position: absolute;
 	top: 266px;
 	right: 103px;
+}
+#transbay {
+	height: 17px;
+	width: 17px;
+	/*background: red;*/
+	position: absolute;
+	top: 204px;
+	right: 58px;
 }
 
 /*Yellow line prize locations and transfer stations*/
 #candlestick {
 	height: 17px;
 	width: 17px;
-	background: red;
+	/*background: red;*/
 	position: absolute;
 	top: 742px;
 	right: 90px;
 }
+#carroll {
+	height: 17px;
+	width: 17px;
+	/*background: red;*/
+	position: absolute;
+	top: 705px;
+	right: 57px;
+}
+#bayview {
+	height: 17px;
+	width: 17px;
+	/*background: red;*/
+	position: absolute;
+	top: 643px;
+	right: 35px;
+}
+#hudson {
+	height: 17px;
+	width: 17px;
+	/*background: red;*/
+	position: absolute;
+	top: 589px;
+	right: 35px;
+}
+#marin {
+	height: 17px;
+	width: 17px;
+	/*background: red;*/
+	position: absolute;
+	top: 515px;
+	right: 35px;
+}
 #dogpatch {
 	height: 17px;
 	width: 17px;
-	background: red;
+	/*background: red;*/
 	position: absolute;
 	top: 435px;
 	right: 35px;
 }
+#potrero {
+	height: 17px;
+	width: 17px;
+	/*background: red;*/
+	position: absolute;
+	top: 381px;
+	right: 90px;
+}
 #fourthAndKing {
 	height: 17px;
 	width: 17px;
-	background: red;
+	/*background: red;*/
 	position: absolute;
 	top: 302px;
 	right: 70px;
@@ -228,7 +319,7 @@ margin-left: 80px;
 #chinatown {
 	height: 17px;
 	width: 17px;
-	background: red;
+	/*background: red;*/
 	position: absolute;
 	top: 167px;
 	right: 158px;
@@ -236,7 +327,7 @@ margin-left: 80px;
 #polk {
 	height: 17px;
 	width: 17px;
-	background: red;
+	/*background: red;*/
 	position: absolute;
 	top: 186px;
 	right: 238px;
@@ -244,23 +335,47 @@ margin-left: 80px;
 #japantown {
 	height: 17px;
 	width: 17px;
-	background: red;
+	/*background: red;*/
 	position: absolute;
 	top: 240px;
 	right: 288px;
 }
+#laurelHeights {
+	height: 17px;
+	width: 17px;
+	/*background: red;*/
+	position: absolute;
+	top: 240px;
+	right: 378px;
+}
+#arguello {
+	height: 17px;
+	width: 17px;
+	/*background: red;*/
+	position: absolute;
+	top: 272px;
+	right: 445px;
+}
 #clement {
 	height: 17px;
 	width: 17px;
-	background: red;
+	/*background: red;*/
 	position: absolute;
 	top: 272px;
 	right: 524px;
 }
+#theAvenues {
+	height: 17px;
+	width: 17px;
+	/*background: red;*/
+	position: absolute;
+	top: 272px;
+	right: 590px;
+}
 #landsEnd {
 	height: 17px;
 	width: 17px;
-	background: red;
+	/*background: red;*/
 	position: absolute;
 	top: 338px;
 	right: 738px;
@@ -270,15 +385,31 @@ margin-left: 80px;
 #nineteenthSt {
 	height: 17px;
 	width: 17px;
-	background: red;
+	/*background: red;*/
 	position: absolute;
-	top: 425px;
+	top: 423px;
+	right: 545px;
+}
+#quintara {
+	height: 17px;
+	width: 17px;
+	/*background: red;*/
+	position: absolute;
+	top: 521px;
+	right: 545px;
+}
+#taraval {
+	height: 17px;
+	width: 17px;
+	/*background: red;*/
+	position: absolute;
+	top: 577px;
 	right: 545px;
 }
 #stonestown {
 	height: 17px;
 	width: 17px;
-	background: red;
+	/*background: red;*/
 	position: absolute;
 	top: 693px;
 	right: 533px;
@@ -287,26 +418,83 @@ margin-left: 80px;
 #union {
 	height: 17px;
 	width: 17px;
-	background: red;
+	/*background: red;*/
 	position: absolute;
 	top: 131px;
 	right: 236px;
 }
+#coltrane {
+	height: 17px;
+	width: 17px;
+	/*background: red;*/
+	position: absolute;
+	top: 290px;
+	right: 253px;
+}
+#usf {
+	height: 17px;
+	width: 17px;
+	/*background: red;*/
+	position: absolute;
+	top: 326px;
+	right: 371px;
+}
+#haightAshbury {
+	height: 17px;
+	width: 17px;
+	/*background: red;*/
+	position: absolute;
+	top: 380px;
+	right: 389px;
+}
+#innerSunset {
+	height: 17px;
+	width: 17px;
+	/*background: red;*/
+	position: absolute;
+	top: 423px;
+	right: 483px;
+}
 #outerSunset {
 	height: 17px;
 	width: 17px;
-	background: red;
+	/*background: red;*/
 	position: absolute;
-	top: 425px;
+	top: 423px;
 	right: 652px;
 }
 #breakers {
 	height: 17px;
 	width: 17px;
-	background: red;
+	/*background: red;*/
 	position: absolute;
 	top: 423px;
 	right: 713px;
+}
+/*Purple line prize locations and transfer stations*/
+#church {
+	height: 17px;
+	width: 17px;
+	/*background: red;*/
+	position: absolute;
+	top: 375px;
+	right: 276px;
+}
+#forestHill {
+	height: 17px;
+	width: 17px;
+	/*background: red;*/
+	position: absolute;
+	top: 521px;
+	right: 412px;
+}
+#westPortal {
+	height: 17px;
+	width: 17px;
+	/*background: red;*/
+	position: absolute;
+	top: 582px;
+	right: 468px;
 }
 
 /*MOUSE DIV CSS*/

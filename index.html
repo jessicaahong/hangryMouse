@@ -19,7 +19,7 @@
 <!-- 	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
  --></head>
 <body>
-<div class="container">
+<div class="container">>
 	<div id="gameName" class="text">
 		hungry mouse rides muni
 		<img id="muniLogo" src="images/munilogo.png">
@@ -30,15 +30,16 @@
 		<br>click the new game button to start a new adventure at the Embarcadero muni stop.
 		<br>a hungry mouse is a hangry mouse! get him to his next meal pronto.
 		<br>click on different muni stations to navigate our hero from stop to stop.
-		<br>you cannot switch from one muni line to another without first visiting their shared transfer station.
+		<br><span id="wrongMove">you must visit a transfer station before switching muni lines!</span>
 		</p>
-		<div id="winnerText">
+		<div id="winnerText" class="text">
 		</div>
 		<button class="text">new game</button>
 	</div>
 	<div id="map">
 			<img id="muniImage" src="images/map.png">
-			<div id="mouse">
+<!-- 			might need to take out all of these mouse classes later, put in for dev purposes -->
+			<div id="mouse" class="redLine orangeLine yellowLine greenLine blueLine purpleLine">
 				<img id="mouseImage" src="images/smallmouse.png">
 			</div>
 			<div id="sushi">
@@ -59,6 +60,8 @@
 			</div>
 			<div id="twentyFourthSt" class="munistop redLine">
 			</div>
+			<div id="glenPark" class="munistop redLine">
+			</div>		
 			<div id="balboaPark" class="munistop redLine greenLine">
 			</div>
 <!-- 	orange line divs -->
@@ -66,7 +69,11 @@
 			</div>
 			<div id="wharf" class="munistop orangeLine">
 			</div>
+			<div id="cowHollow" class="munistop orangeLine">
+			</div>
 			<div id="marina" class="munistop orangeLine greenLine">
+			</div>
+			<div id="pacHeights" class="munistop orangeLine">
 			</div>
 			<div id="mtZion" class="munistop orangeLine yellowLine">
 			</div>
@@ -74,12 +81,28 @@
 			</div>
 			<div id="castro" class="munistop orangeLine purpleLine">
 			</div>
+			<div id="designDistrict" class="munistop orangeLine">
+			</div>
+			<div id="folsom" class="munistop orangeLine">
+			</div>
 			<div id="soma" class="munistop orangeLine yellowLine">
+			</div>
+			<div id="transbay" class="munistop orangeLine">
 			</div>
 <!-- 	yellow line divs -->
 			<div id="candlestick" class="munistop yellowLine">
 			</div>
+			<div id="carroll" class="munistop yellowLine">
+			</div>
+			<div id="bayview" class="munistop yellowLine">
+			</div>
+			<div id="hudson" class="munistop yellowLine">
+			</div>
+			<div id="marin" class="munistop yellowLine">
+			</div>
 			<div id="dogpatch" class="munistop yellowLine">
+			</div>
+			<div id="potrero" class="munistop yellowLine">
 			</div>
 			<div id="fourthAndKing" class="munistop yellowLine">
 			</div>
@@ -89,21 +112,46 @@
 			</div>
 			<div id="japantown" class="munistop yellowLine">
 			</div>
+			<div id="laurelHeights" class="munistop yellowLine">
+			</div>
+			<div id="arguello" class="munistop yellowLine">
+			</div>
 			<div id="clement" class="munistop yellowLine greenLine">
+			</div>
+			<div id="theAvenues" class="munistop yellowLine">
 			</div>
 			<div id="landsEnd" class="munistop yellowLine">
 			</div>
 <!-- 	green line divs -->
 			<div id="nineteenthSt" class="munistop greenLine blueLine">
 			</div>
+			<div id="quintara" class="munistop greenLine">
+			</div>
+			<div id="taraval" class="munistop greenLine">
+			</div>
 			<div id="stonestown" class="munistop greenLine purpleLine">
 			</div>
 <!-- 	blue line divs -->
 			<div id="union" class="munistop blueLine">
 			</div>
+			<div id="coltrane" class="munistop blueLine">
+			</div>
+			<div id="usf" class="munistop blueLine">
+			</div>
+			<div id="haightAshbury" class="munistop blueLine">
+			</div>
+			<div id="innerSunset" class="munistop blueLine">
+			</div>
 			<div id="outerSunset" class="munistop blueLine">
 			</div>
 			<div id="breakers" class="munistop blueLine">
+			</div>
+<!-- 	purple line divs -->
+			<div id="church" class="munistop purpleLine">
+			</div>
+			<div id="forestHill" class="munistop purpleLine">
+			</div>
+			<div id="westPortal" class="munistop purpleLine">
 			</div>
 	</div>
 </div>
