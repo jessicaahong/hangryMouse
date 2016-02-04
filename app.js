@@ -40,12 +40,32 @@ function newGame() {
 
 function loadClickEventListeners() {
 	$('.munistop').on('click', function() {
-		letMouseWin(event.target);
 		if (!hasWon) {
 			completeMove(event.target);
 		}
 	});
 }
+
+function completeMove(targetElement) {
+	//if mouse and new muni station are part of the same line, move mouse and change its classes
+	if (($('#mouse').hasClass('redLine') && $(targetElement).hasClass('redLine')) ||
+		($('#mouse').hasClass('orangeLine') && $(targetElement).hasClass('orangeLine')) ||
+		($('#mouse').hasClass('yellowLine') && $(targetElement).hasClass('yellowLine')) ||
+		($('#mouse').hasClass('greenLine') && $(targetElement).hasClass('greenLine')) ||
+		($('#mouse').hasClass('blueLine') && $(targetElement).hasClass('blueLine')) ||
+		($('#mouse').hasClass('purpleLine') && $(targetElement).hasClass('purpleLine'))) {
+			moveMouse(targetElement);
+			adjustClasses(targetElement);
+			//get rid of invalid move alerts
+			$('#invalidMove').css({'color' : 'black', 'font-size' : '16px'});
+			$('#exclamationPointDiv').css({'display' : 'none'});
+			//lets mouse win if the current station it navigated to is the winning station
+			letMouseWin(targetElement);
+	//else if they do not belong to the same line, alert that they go to transfer station
+	} else {
+		invalidMoveAlert();
+	}
+} 
 
 function letMouseWin(targetElement){
 	var currentStation = targetElement;
@@ -62,25 +82,6 @@ function showWinnerMessage(){
 	$('#congratulations').css({'color' : '#EA242F'});
 	$('#yelpLink').attr('href', yelpLink);
 }
-
-function completeMove(targetElement) {
-	//if mouse and new muni station are part of the same line, move mouse and change its classes
-	if (($('#mouse').hasClass('redLine') && $(targetElement).hasClass('redLine')) ||
-		($('#mouse').hasClass('orangeLine') && $(targetElement).hasClass('orangeLine')) ||
-		($('#mouse').hasClass('yellowLine') && $(targetElement).hasClass('yellowLine')) ||
-		($('#mouse').hasClass('greenLine') && $(targetElement).hasClass('greenLine')) ||
-		($('#mouse').hasClass('blueLine') && $(targetElement).hasClass('blueLine')) ||
-		($('#mouse').hasClass('purpleLine') && $(targetElement).hasClass('purpleLine'))) {
-			moveMouse(targetElement);
-			adjustClasses(targetElement);
-			//get rid of invalid move alerts
-			$('#invalidMove').css({'color' : 'black', 'font-size' : '16px'});
-			$('#exclamationPointDiv').css({'display' : 'none'});
-	//else if they do not belong to the same line, alert that they go to transfer station
-	} else {
-		invalidMoveAlert();
-	}
-} 
 
 function moveMouse(targetElement) {
 	//set mouse position so that it hovers over desired muni station
