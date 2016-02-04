@@ -27,7 +27,6 @@ button:focus {
 }
 #adventureDetails {
 	margin: 0px 10px;
-/*	Must later assign this when writing newGame function:*/
 	display: inline-block;
 }
 #gameName {
@@ -75,90 +74,141 @@ button:focus {
 }
 
 /*Prize div CSS Below*/
-#sushi {
-	height: 50px;
-	width: 50px;
-	position: absolute;
-	top: 190px;
-	right: 275px;
-}
-#sushiImage{
+.foodIcon{
 	height: 100%;
 	width: 100%;
+}
+.food {
+	position: absolute;
+	display: none;
+}
+#beer {
+	height: 60px;
+	width: 60px;
+	top: 410px;
+	right: -30px;
+}
+#brownie {
+	height: 50px;
+	width: 50px;
+	top: 400px;
+	right: 360px;
+}
+#burger {
+	height: 45px;
+	width: 45px;
+	top: 310px;
+	right: 280px;
+}
+#burrito {
+	height: 60px;
+	width: 60px;
+	top: 470px;
+	right: 160px;
+}
+#cheese {
+	height: 60px;
+	width: 70px;
+	top: 400px;
+	right: 150px;
+}
+#chowder {
+	height: 60px;
+	width: 50px;
+	top: -10px;
+	right: 152px;
+}
+#coffee {
+	height: 60px;
+	width: 40px;
+	top: 440px;
+	right: 290px;
+}
+#crab {
+	height: 39px;
+	width: 52px;
+	top: 280px;
+	right: 725px;
+}
+#dimsum {
+	height: 50px;
+	width: 50px;
+	top: 210px;
+	right: 580px;
+}
+#hotdog {
+	height: 60px;
+	width: 60px;
+	transform: rotate(90deg);
+	top: 290px;
+	right: 10px;
+}
+#pizza {
+	height: 60px;
+	width: 60px;
+	transform: rotate(90deg);
+	top: 80px;
+	right: 55px;
+}
+#pretzel {
+	height: 40px;
+	width: 40px;
+	top: 680px;
+	right: 485px;
+}
+#sushi {
+	height: 40px;
+	width: 40px;
+	top: 197px;
+	right: 280px;
 }
 
 /*NODE DIV CSS*/
 /*Organized by order of colors of the rainbow, no repeats*/
 /*red line prize destinations and transfer stations*/
-#embarcadero {
+.munistop {
 	height: 17px;
 	width: 17px;
-	/*background: red;*/
 	position: absolute;
+/*	background: red;*/
+}
+#embarcadero {
 	top: 168px;
 	right: 80px;
 }
 #montgomery {
-	height: 17px;
-	width: 17px;
-	/*background: red;*/
-	position: absolute;
 	top: 205px;
 	right: 114px;
 }
 #powell {
-	height: 17px;
-	width: 17px;
-	/*background: red;*/
-	position: absolute;
 	top: 240px;
 	right: 147px;
 }
 #civicCenter {
 	height: 30px;
 	width: 27px;
-	/*background: red;*/
-	position: absolute;
 	top: 270px;
 	right: 187px;
 }
 #vanNess {
 	height: 30px;
 	width: 27px;
-	/*background: red;*/
-	position: absolute;
 	top: 320px;
 	right: 216px;
 }
 #sixteenthSt {
-	height: 17px;
-	width: 17px;
-	/*background: red;*/
-	position: absolute;
 	top: 393px;
 	right: 214px;
 }
 #twentyFourthSt {
-	height: 17px;
-	width: 17px;
-	/*background: red;*/
-	position: absolute;
 	top: 490px;
 	right: 214px;
 }
 #glenPark {
-	height: 17px;
-	width: 17px;
-	/*background: red;*/
-	position: absolute;
 	top: 643px;
 	right: 293px;
 }
 #balboaPark {
-	height: 17px;
-	width: 17px;
-	/*background: red;*/
-	position: absolute;
 	top: 729px;
 	right: 372px;
 }
@@ -166,344 +216,176 @@ button:focus {
 /*Orange line prize locations and transfer stations*/
 
 #northBeach {
-	height: 17px;
-	width: 17px;
-	/*background: red;*/
-	position: absolute;
 	top: 107px;
 	right: 135px;
 }
 #wharf {
-	height: 17px;
-	width: 17px;
-	/*background: red;*/
-	position: absolute;
 	top: 70px;
 	right: 170px;
 }
 #cowHollow {
-	height: 17px;
-	width: 17px;
-	/*background: red;*/
-	position: absolute;
 	top: 70px;
 	right: 220px;
 }
 #marina {
-	height: 17px;
-	width: 17px;
-	/*background: red;*/
-	position: absolute;
 	top: 87px;
 	right: 326px;
 }
 #pacHeights {
-	height: 17px;
-	width: 17px;
-	/*background: red;*/
-	position: absolute;
 	top: 173px;
 	right: 326px;
 }
 #mtZion {
-	height: 17px;
-	width: 17px;
-	/*background: red;*/
-	position: absolute;
 	top: 240px;
 	right: 326px;
 }
 #divisadero {
-	height: 17px;
-	width: 17px;
-	/*background: red;*/
-	position: absolute;
 	top: 290px;
 	right: 326px;
 }
 #castro {
-	height: 17px;
-	width: 17px;
-	/*background: red;*/
-	position: absolute;
 	top: 412px;
 	right: 310px;
 }
 #designDistrict {
-	height: 17px;
-	width: 17px;
-	/*background: red;*/
-	position: absolute;
 	top: 368px;
 	right: 146px;
 }
 #folsom {
-	height: 17px;
-	width: 17px;
-	/*background: red;*/
-	position: absolute;
 	top: 314px;
 	right: 146px;
 }
 #soma {
-	height: 17px;
-	width: 17px;
-	/*background: red;*/
-	position: absolute;
 	top: 266px;
 	right: 103px;
 }
 #transbay {
-	height: 17px;
-	width: 17px;
-	/*background: red;*/
-	position: absolute;
 	top: 204px;
 	right: 58px;
 }
 
 /*Yellow line prize locations and transfer stations*/
 #candlestick {
-	height: 17px;
-	width: 17px;
-	/*background: red;*/
-	position: absolute;
 	top: 742px;
 	right: 90px;
 }
 #carroll {
-	height: 17px;
-	width: 17px;
-	/*background: red;*/
-	position: absolute;
 	top: 705px;
 	right: 57px;
 }
 #bayview {
-	height: 17px;
-	width: 17px;
-	/*background: red;*/
-	position: absolute;
 	top: 643px;
 	right: 35px;
 }
 #hudson {
-	height: 17px;
-	width: 17px;
-	/*background: red;*/
-	position: absolute;
 	top: 589px;
 	right: 35px;
 }
 #marin {
-	height: 17px;
-	width: 17px;
-	/*background: red;*/
-	position: absolute;
 	top: 515px;
 	right: 35px;
 }
 #dogpatch {
-	height: 17px;
-	width: 17px;
-	/*background: red;*/
-	position: absolute;
 	top: 435px;
 	right: 35px;
 }
 #potrero {
-	height: 17px;
-	width: 17px;
-	/*background: red;*/
-	position: absolute;
 	top: 381px;
 	right: 90px;
 }
 #fourthAndKing {
-	height: 17px;
-	width: 17px;
-	/*background: red;*/
-	position: absolute;
 	top: 302px;
 	right: 70px;
 }
 #chinatown {
-	height: 17px;
-	width: 17px;
-	/*background: red;*/
-	position: absolute;
 	top: 167px;
 	right: 158px;
 }
 #polk {
-	height: 17px;
-	width: 17px;
-	/*background: red;*/
-	position: absolute;
 	top: 186px;
 	right: 238px;
 }
 #japantown {
-	height: 17px;
-	width: 17px;
-	/*background: red;*/
-	position: absolute;
 	top: 240px;
 	right: 288px;
 }
 #laurelHeights {
-	height: 17px;
-	width: 17px;
-	/*background: red;*/
-	position: absolute;
 	top: 240px;
 	right: 378px;
 }
 #arguello {
-	height: 17px;
-	width: 17px;
-	/*background: red;*/
-	position: absolute;
 	top: 272px;
 	right: 445px;
 }
 #clement {
-	height: 17px;
-	width: 17px;
-	/*background: red;*/
-	position: absolute;
 	top: 272px;
 	right: 524px;
 }
 #theAvenues {
-	height: 17px;
-	width: 17px;
-	/*background: red;*/
-	position: absolute;
 	top: 272px;
 	right: 590px;
 }
 #landsEnd {
-	height: 17px;
-	width: 17px;
-	/*background: red;*/
-	position: absolute;
 	top: 338px;
 	right: 738px;
 }
 
 /*Green line prize locations and transfer stations*/
 #nineteenthSt {
-	height: 17px;
-	width: 17px;
-	/*background: red;*/
-	position: absolute;
 	top: 423px;
 	right: 545px;
 }
 #quintara {
-	height: 17px;
-	width: 17px;
-	/*background: red;*/
-	position: absolute;
 	top: 521px;
 	right: 545px;
 }
 #taraval {
-	height: 17px;
-	width: 17px;
-	/*background: red;*/
-	position: absolute;
 	top: 577px;
 	right: 545px;
 }
 #stonestown {
-	height: 17px;
-	width: 17px;
-	/*background: red;*/
-	position: absolute;
 	top: 693px;
 	right: 533px;
 }
 /*Blue line prize locations and transfer stations*/
 #union {
-	height: 17px;
-	width: 17px;
-	/*background: red;*/
-	position: absolute;
 	top: 131px;
 	right: 236px;
 }
 #coltrane {
-	height: 17px;
-	width: 17px;
-	/*background: red;*/
-	position: absolute;
 	top: 290px;
 	right: 253px;
 }
 #usf {
-	height: 17px;
-	width: 17px;
-	/*background: red;*/
-	position: absolute;
 	top: 326px;
 	right: 371px;
 }
 #haightAshbury {
-	height: 17px;
-	width: 17px;
-	/*background: red;*/
-	position: absolute;
 	top: 380px;
 	right: 389px;
 }
 #innerSunset {
-	height: 17px;
-	width: 17px;
-	/*background: red;*/
-	position: absolute;
 	top: 423px;
 	right: 483px;
 }
 #outerSunset {
-	height: 17px;
-	width: 17px;
-	/*background: red;*/
-	position: absolute;
 	top: 423px;
 	right: 652px;
 }
 #breakers {
-	height: 17px;
-	width: 17px;
-	/*background: red;*/
-	position: absolute;
 	top: 423px;
 	right: 713px;
 }
 /*Purple line prize locations and transfer stations*/
 #church {
-	height: 17px;
-	width: 17px;
-	/*background: red;*/
-	position: absolute;
 	top: 375px;
 	right: 276px;
 }
 #forestHill {
-	height: 17px;
-	width: 17px;
-	/*background: red;*/
-	position: absolute;
 	top: 521px;
 	right: 412px;
 }
 #westPortal {
-	height: 17px;
-	width: 17px;4
-	/*background: red;*/
-	position: absolute;
 	top: 582px;
 	right: 468px;
 }
@@ -514,7 +396,7 @@ button:focus {
 	width: 50px;
 	top: -40px;
 	right: 650px;
-	position: absolute
+	position: absolute;
 	display: none;
 }
 #mouseImage{

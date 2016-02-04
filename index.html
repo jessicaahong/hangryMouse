@@ -27,136 +27,173 @@
 	<div class="instructions text">
 		<h2 id="title">help the mouse ride magical muni to find his next meal!</h2>
 		<p><b>instructions:</b>
-		<br>click the new game button to start a new adventure at the Embarcadero muni stop.
-		<br>a hungry mouse is a hangry mouse! get him to his next meal pronto.
 		<br>click on different muni stations to navigate our hero from stop to stop.
+		<br>a hungry mouse is a hangry mouse! get him to his next meal pronto by making the fewest transfers possible.
 		<br><span id="invalidMove">you must visit a transfer station before switching muni lines!</span>
 		</p>
 		<div id="winnerText" class="text">
 		</div>
 		<button class="text">new game</button>
-		<div id="adventureDetails">sample text is going here</div>
+		<div id="adventureDetails">click the new game button to start a new adventure.</div>
 	</div>
 	<div id="map">
 			<img id="muniImage" src="images/map.png">
-<!-- 			might need to take out all of these mouse classes later, put in for dev purposes -->
-	<div id="exclamationPointDiv">
-		<img id="exclamationPointImage" src='images/exclamationPoint2.png'>
-	</div>
-			<div id="mouse" class="redLine orangeLine yellowLine greenLine blueLine purpleLine">
-				<img id="mouseImage" src="images/smallmouse.png">
-			</div>
-			<div id="sushi">
-				<img id="sushiImage" src="images/sushi.png">
-			</div>
+		<div id="exclamationPointDiv">
+			<img id="exclamationPointImage" src='images/exclamationPoint.png'>
+		</div>
+<!-- 		mouse elements -->
+		<div id="mouse" class="redLine orangeLine yellowLine greenLine blueLine purpleLine">
+			<img id="mouseImage" src="images/smallmouse.png">
+		</div>
+<!-- food icon elements -->
+		<div id="beer" class="food">
+			<img class="foodIcon" src="images/beer.png">
+		</div>
+		<div id="brownie" class="food">
+			<img class="foodIcon" src="images/brownie.png">
+		</div>
+		<div id="burger" class="food">
+			<img class="foodIcon" src="images/burger.png">
+		</div>
+		<div id="burrito" class="food">
+			<img class="foodIcon" src="images/burrito.png">
+		</div>
+		<div id="cheese" class="food">
+			<img class="foodIcon" src="images/cheese.png">
+		</div>
+		<div id="chowder" class="food">
+			<img class="foodIcon" src="images/chowder.png">
+		</div>
+		<div id="coffee" class="food">
+			<img class="foodIcon" src="images/coffee.jpg">
+		</div>
+		<div id="crab" class="food">
+			<img class="foodIcon" src="images/crab.png">
+		</div>
+		<div id="dimsum" class="food">
+			<img class="foodIcon" src="images/dimsum.png">
+		</div>
+		<div id="hotdog" class="food">
+			<img class="foodIcon" src="images/hotdog.png">
+		</div>
+		<div id="pizza" class="food">
+			<img class="foodIcon" src="images/pizza.png">
+		</div>
+		<div id="pretzel" class="food">
+			<img class="foodIcon" src="images/pretzel.gif">
+		</div>
+		<div id="sushi" class="food">
+			<img class="foodIcon" src="images/sushi.png">
+		</div>
+
 <!-- 	red line divs -->
-			<div id="embarcadero" class="munistop redLine purpleLine orangeLine">
-			</div>
-			<div id="montgomery" class="munistop redLine yellowLine purpleLine">
-			</div>
-			<div id="powell" class="munistop redLine greenLine purpleLine">
-			</div>
-			<div id="civicCenter" class="munistop redLine blueLine purpleLine">
-			</div>
-			<div id="vanNess" class="munistop redLine purpleLine">
-			</div>
-			<div id="sixteenthSt" class="munistop redLine orangeLine">
-			</div>
-			<div id="twentyFourthSt" class="munistop redLine">
-			</div>
-			<div id="glenPark" class="munistop redLine">
-			</div>		
-			<div id="balboaPark" class="munistop redLine greenLine">
-			</div>
+		<div id="embarcadero" class="munistop redLine purpleLine orangeLine">
+		</div>
+		<div id="montgomery" class="munistop redLine yellowLine purpleLine">
+		</div>
+		<div id="powell" class="munistop redLine greenLine purpleLine">
+		</div>
+		<div id="civicCenter" class="munistop redLine blueLine purpleLine">
+		</div>
+		<div id="vanNess" class="munistop redLine purpleLine">
+		</div>
+		<div id="sixteenthSt" class="munistop redLine orangeLine">
+		</div>
+		<div id="twentyFourthSt" class="munistop redLine">
+		</div>
+		<div id="glenPark" class="munistop redLine">
+		</div>		
+		<div id="balboaPark" class="munistop redLine greenLine">
+		</div>
 <!-- 	orange line divs -->
-			<div id="northBeach" class="munistop orangeLine blueLine">
-			</div>
-			<div id="wharf" class="munistop orangeLine">
-			</div>
-			<div id="cowHollow" class="munistop orangeLine">
-			</div>
-			<div id="marina" class="munistop orangeLine greenLine">
-			</div>
-			<div id="pacHeights" class="munistop orangeLine">
-			</div>
-			<div id="mtZion" class="munistop orangeLine yellowLine">
-			</div>
-			<div id="divisadero" class="munistop orangeLine blueLine">
-			</div>
-			<div id="castro" class="munistop orangeLine purpleLine">
-			</div>
-			<div id="designDistrict" class="munistop orangeLine">
-			</div>
-			<div id="folsom" class="munistop orangeLine">
-			</div>
-			<div id="soma" class="munistop orangeLine yellowLine">
-			</div>
-			<div id="transbay" class="munistop orangeLine">
-			</div>
+		<div id="northBeach" class="munistop orangeLine blueLine">
+		</div>
+		<div id="wharf" class="munistop orangeLine">
+		</div>
+		<div id="cowHollow" class="munistop orangeLine">
+		</div>
+		<div id="marina" class="munistop orangeLine greenLine">
+		</div>
+		<div id="pacHeights" class="munistop orangeLine">
+		</div>
+		<div id="mtZion" class="munistop orangeLine yellowLine">
+		</div>
+		<div id="divisadero" class="munistop orangeLine blueLine">
+		</div>
+		<div id="castro" class="munistop orangeLine purpleLine">
+		</div>
+		<div id="designDistrict" class="munistop orangeLine">
+		</div>
+		<div id="folsom" class="munistop orangeLine">
+		</div>
+		<div id="soma" class="munistop orangeLine yellowLine">
+		</div>
+		<div id="transbay" class="munistop orangeLine">
+		</div>
 <!-- 	yellow line divs -->
-			<div id="candlestick" class="munistop yellowLine">
-			</div>
-			<div id="carroll" class="munistop yellowLine">
-			</div>
-			<div id="bayview" class="munistop yellowLine">
-			</div>
-			<div id="hudson" class="munistop yellowLine">
-			</div>
-			<div id="marin" class="munistop yellowLine">
-			</div>
-			<div id="dogpatch" class="munistop yellowLine">
-			</div>
-			<div id="potrero" class="munistop yellowLine">
-			</div>
-			<div id="fourthAndKing" class="munistop yellowLine">
-			</div>
-			<div id="chinatown" class="munistop yellowLine">
-			</div>
-			<div id="polk" class="munistop yellowLine greenLine blueLine">
-			</div>
-			<div id="japantown" class="munistop yellowLine">
-			</div>
-			<div id="laurelHeights" class="munistop yellowLine">
-			</div>
-			<div id="arguello" class="munistop yellowLine">
-			</div>
-			<div id="clement" class="munistop yellowLine greenLine">
-			</div>
-			<div id="theAvenues" class="munistop yellowLine">
-			</div>
-			<div id="landsEnd" class="munistop yellowLine">
-			</div>
+		<div id="candlestick" class="munistop yellowLine">
+		</div>
+		<div id="carroll" class="munistop yellowLine">
+		</div>
+		<div id="bayview" class="munistop yellowLine">
+		</div>
+		<div id="hudson" class="munistop yellowLine">
+		</div>
+		<div id="marin" class="munistop yellowLine">
+		</div>
+		<div id="dogpatch" class="munistop yellowLine">
+		</div>
+		<div id="potrero" class="munistop yellowLine">
+		</div>
+		<div id="fourthAndKing" class="munistop yellowLine">
+		</div>
+		<div id="chinatown" class="munistop yellowLine">
+		</div>
+		<div id="polk" class="munistop yellowLine greenLine blueLine">
+		</div>
+		<div id="japantown" class="munistop yellowLine">
+		</div>
+		<div id="laurelHeights" class="munistop yellowLine">
+		</div>
+		<div id="arguello" class="munistop yellowLine">
+		</div>
+		<div id="clement" class="munistop yellowLine greenLine">
+		</div>
+		<div id="theAvenues" class="munistop yellowLine">
+		</div>
+		<div id="landsEnd" class="munistop yellowLine">
+		</div>
 <!-- 	green line divs -->
-			<div id="nineteenthSt" class="munistop greenLine blueLine">
-			</div>
-			<div id="quintara" class="munistop greenLine">
-			</div>
-			<div id="taraval" class="munistop greenLine">
-			</div>
-			<div id="stonestown" class="munistop greenLine purpleLine">
-			</div>
+		<div id="nineteenthSt" class="munistop greenLine blueLine">
+		</div>
+		<div id="quintara" class="munistop greenLine">
+		</div>
+		<div id="taraval" class="munistop greenLine">
+		</div>
+		<div id="stonestown" class="munistop greenLine purpleLine">
+		</div>
 <!-- 	blue line divs -->
-			<div id="union" class="munistop blueLine">
-			</div>
-			<div id="coltrane" class="munistop blueLine">
-			</div>
-			<div id="usf" class="munistop blueLine">
-			</div>
-			<div id="haightAshbury" class="munistop blueLine">
-			</div>
-			<div id="innerSunset" class="munistop blueLine">
-			</div>
-			<div id="outerSunset" class="munistop blueLine">
-			</div>
-			<div id="breakers" class="munistop blueLine">
-			</div>
+		<div id="union" class="munistop blueLine">
+		</div>
+		<div id="coltrane" class="munistop blueLine">
+		</div>
+		<div id="usf" class="munistop blueLine">
+		</div>
+		<div id="haightAshbury" class="munistop blueLine">
+		</div>
+		<div id="innerSunset" class="munistop blueLine">
+		</div>
+		<div id="outerSunset" class="munistop blueLine">
+		</div>
+		<div id="breakers" class="munistop blueLine">
+		</div>
 <!-- 	purple line divs -->
-			<div id="church" class="munistop purpleLine">
-			</div>
-			<div id="forestHill" class="munistop purpleLine">
-			</div>
-			<div id="westPortal" class="munistop purpleLine">
-			</div>
+		<div id="church" class="munistop purpleLine">
+		</div>
+		<div id="forestHill" class="munistop purpleLine">
+		</div>
+		<div id="westPortal" class="munistop purpleLine">
+		</div>
 	</div>
 </div>
 </body>
