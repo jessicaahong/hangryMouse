@@ -29,6 +29,11 @@ button:focus {
 	margin: 0px 10px;
 	display: inline-block;
 }
+/*#adventureDetails:hover {
+	margin: 0px 10px;
+	display: inline-block;
+	
+}*/
 #gameName {
 	color: white;
 	font-size: 45px;

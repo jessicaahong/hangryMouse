@@ -17,28 +17,100 @@ var arrayOfFunctions = [
 			setPizzaAdventure,
 			setPretzelAdventure,
 			setSushiAdventure];
-
+var winningStation;
+var currentStation;
 function newGame() {
 	hasStarted=true;
 	//make exclamation point invisible with new game
 	$('#exclamationPointDiv').css({'display' : 'none'});
 	//make all food icons invisible with new game
 	$('.food').css({'display': 'none'});
-	//make nodes clickable
+	//make nodes clickable and game winnable
 	loadClickEventListeners();
-	//select new gameboard randomly, and generates new gameboard
-	selectRandomAdventure();
-	//then display mouse at new location
+	//select new adventure
+	selectNewAdventure();
+	//display mouse at new location
 	$('#mouse').css({'display' : 'block', 'position' : 'absolute'});
 }
 
-function selectRandomAdventure() {
+
+
+
+//functions that make mouse mobile
+function loadClickEventListeners() {
+	$('.munistop').on('click', function() {
+		letMouseWin(event.target);
+		completeMove(event.target);
+	});
+}
+
+function letMouseWin(targetElement){
+	var currentStation = targetElement;
+	var winningStation = document.querySelector('#japantown');
+	console.log(currentStation);
+	console.log(winningStation);
+	//sets a winner Node
+	setWinningStation();
+	if (currentStation == winningStation) {
+		showWinnerMessage();
+	}
+}
+function setWinningStation() {
+	var winningStation = document.querySelector('#japantown');
+}
+
+function showWinnerMessage(){
+	console.log('we have a winner');
+}
+
+function completeMove(targetElement) {
+	//if mouse and new muni station are part of the same line, move mouse and change its classes
+	if (($('#mouse').hasClass('redLine') && $(targetElement).hasClass('redLine')) ||
+		($('#mouse').hasClass('orangeLine') && $(targetElement).hasClass('orangeLine')) ||
+		($('#mouse').hasClass('yellowLine') && $(targetElement).hasClass('yellowLine')) ||
+		($('#mouse').hasClass('greenLine') && $(targetElement).hasClass('greenLine')) ||
+		($('#mouse').hasClass('blueLine') && $(targetElement).hasClass('blueLine')) ||
+		($('#mouse').hasClass('purpleLine') && $(targetElement).hasClass('purpleLine'))) {
+			moveMouse(targetElement);
+			adjustClasses(targetElement);
+			//get rid of invalid move alerts
+			$('#invalidMove').css({'color' : 'black', 'font-size' : '16px'});
+			$('#exclamationPointDiv').css({'display' : 'none'});
+	//else if they do not belong to the same line, alert that they go to transfer station
+	} else {
+		invalidMoveAlert();
+	}
+} 
+
+function moveMouse(targetElement) {
+	//set mouse position so that it hovers over desired muni station
+	var newMouseLatitude = (parseInt($(targetElement).css('top'))-15).toString() + "px";
+	var newMouseLongitude = (parseInt($(targetElement).css('right'))-8).toString() + "px";
+	$('#mouse').css({'top' : newMouseLatitude, 'right' : newMouseLongitude});
+}
+
+function adjustClasses(targetElement) {
+			var classList = targetElement.classList.toString();
+			$('#mouse').removeClass();
+			$('#mouse').addClass(classList);
+			$('#mouse').removeClass('munistop');
+}
+
+function invalidMoveAlert() {
+		//turn text in instructions red
+		$('#invalidMove').css({'color' : '#EA242F', 'font-size' : '16px'});
+		//have an exclamation point pop up over the mouse to alert an invalid move
+		var exclamationPointLatitude = (parseInt($('#mouse').css('top'))-42).toString() + "px";
+		var exclamationPointLongitude = (parseInt($('#mouse').css('right'))).toString() + "px";
+		$('#exclamationPointDiv').css({'display' : 'block', 'top': exclamationPointLatitude, 'right' : exclamationPointLongitude});
+}
+
+function selectNewAdventure() {
 	for (var i = arrayOfFunctions.length-1; i >= 0; i--) {
 		if (hasStarted) {
 			arrayOfFunctions[i]();
 			arrayOfFunctions.pop();
 			hasStarted = false;
-			console.log(arrayOfFunctions);
 		}
 		if(arrayOfFunctions.length===0) {
 			arrayOfFunctions.push(setBeerAdventure,
@@ -55,7 +127,7 @@ function selectRandomAdventure() {
 				setPretzelAdventure,
 				setSushiAdventure);
 		}
-	} 
+	}
 }
 
 // adventure functions below
@@ -139,57 +211,6 @@ function setSushiAdventure(){
 	$('#sushi').css({'display' : 'block'});	
 }
 
-//functions that make mouse mobile
-function loadClickEventListeners() {
-	$('.munistop').on('click', function() {
-		completeMove(event.target);
-
-	});
-}
-
-function completeMove(targetElement) {
-	//if mouse and new muni station are part of the same line, move mouse and change its classes
-	if (($('#mouse').hasClass('redLine') && $(targetElement).hasClass('redLine')) ||
-		($('#mouse').hasClass('orangeLine') && $(targetElement).hasClass('orangeLine')) ||
-		($('#mouse').hasClass('yellowLine') && $(targetElement).hasClass('yellowLine')) ||
-		($('#mouse').hasClass('greenLine') && $(targetElement).hasClass('greenLine')) ||
-		($('#mouse').hasClass('blueLine') && $(targetElement).hasClass('blueLine')) ||
-		($('#mouse').hasClass('purpleLine') && $(targetElement).hasClass('purpleLine'))) {
-			moveMouse(targetElement);
-			adjustClasses(targetElement);
-			//get rid of invalid move alerts
-			$('#invalidMove').css({'color' : 'black', 'font-size' : '16px'});
-			$('#exclamationPointDiv').css({'display' : 'none'});
-	//else if they do not belong to the same line, alert that they go to transfer station
-	} else {
-		invalidMoveAlert();
-	}
-} 
-
-function moveMouse(targetElement) {
-	//set mouse position so that it hovers over desired muni station
-	var newMouseLatitude = (parseInt($(targetElement).css('top'))-15).toString() + "px";
-	var newMouseLongitude = (parseInt($(targetElement).css('right'))-8).toString() + "px";
-	$('#mouse').css({'top' : newMouseLatitude, 'right' : newMouseLongitude});
-}
-
-function adjustClasses(targetElement) {
-			var classList = targetElement.classList.toString();
-			$('#mouse').removeClass();
-			$('#mouse').addClass(classList);
-			$('#mouse').removeClass('munistop');
-}
-
-function invalidMoveAlert() {
-		//turn text in instructions red
-		$('#invalidMove').css({'color' : '#EA242F', 'font-size' : '16px'});
-		//have an exclamation point pop up over the mouse to alert an invalid move
-		var exclamationPointLatitude = (parseInt($('#mouse').css('top'))-42).toString() + "px";
-		var exclamationPointLongitude = (parseInt($('#mouse').css('right'))).toString() + "px";
-		$('#exclamationPointDiv').css({'display' : 'block', 'top': exclamationPointLatitude, 'right' : exclamationPointLongitude});
-}
-
-
 
 	// function getRandomAdventure(){
 	// 	var min = 0;
@@ -197,3 +218,13 @@ function invalidMoveAlert() {
 	// 	arrayOfFunctions[(Math.floor(Math.random() * (max-min)) + min)]();
 	// }
 	// getRandomAdventure();
+
+	// 	$("button").hover( function() {
+	// 	$('#adventureDetails').toggleClass("highLight");
+ //    	$('#adventureDetails').html("click the new game button to start a new adventure.");
+ //    	$('#adventureDetails').css({'color' : '#EA242F'});
+	// },
+	// function() {
+	// 	$('#adventureDetails').toggleClass("highLight");
+	// 	$('#adventureDetails').html(originalMessage);
+	// });
