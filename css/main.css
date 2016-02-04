@@ -8,7 +8,7 @@ button {
 	font-size: 14px;
 	background: white;
 	border: 1px black solid;
-	margin: 10px 0px;
+	margin: 10px 10px 10px 0px;
 	display: inline-block;
 }
 button:hover {
@@ -26,13 +26,21 @@ button:focus {
 	font-family: 'Oxygen', sans-serif;
 }
 #adventureDetails {
-	margin: 0px 10px;
 	display: inline-block;
+	vertical-align: top;
+	height: 60px;
+}
+#yelpLink {
+	color: #EA242F;
+	text-decoration: none;
+}
+#yelpLink:visited {
+	text-decoration: underline;
 }
 /*#adventureDetails:hover {
 	margin: 0px 10px;
 	display: inline-block;
-	
+
 }*/
 #gameName {
 	color: white;
@@ -47,7 +55,7 @@ button:focus {
     position: fixed;
     top: 0;
     right: 100%;
-    width: 600px;
+    width: 700px;
     text-align: center;
     vertical-align: middle;
     background: #EA242F;
@@ -423,7 +431,16 @@ button:focus {
 	height: 100%;
 	width:100%;
 }
-/*@ 650
-{
-	#gameName needs to shrink text size so it doesn't break into two lines
-}*/
+
+/*media queries*/
+@media (max-width: 860px) {
+  #gameName {
+    display: none;
+  }
+  .instructions {
+  	margin-left: 0px;
+  }
+  #map {
+  	margin-left: 0px;
+  }
+}
