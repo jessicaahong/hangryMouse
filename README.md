@@ -40,8 +40,9 @@ Do NOT click on the map before pressing new game!
 <ul>
 	<li>Add animations to make mouse move along track as he goes from station to station</li>
 	<li>Add animation so mouse "falls" on the Muni station it starts at when new game is pressed</li>
+	<li>Update winner announcement so it also displays the fewest clicks possible to get to the current prize</li>
 </ul>
 
-# Contribution
+# Contributions
 
 Contributions are welcome! Fork this repository and please submit any and all pull requests.

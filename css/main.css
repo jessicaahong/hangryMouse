@@ -21,6 +21,9 @@ button:hover {
 button:focus {
 	outline: 0;
 }
+#replayButton {
+	display: none;
+}
 .instructions{
 	text-align: center;
 }
@@ -30,9 +33,8 @@ button:focus {
 #adventureDetails {
 	display: inline-block;
 	vertical-align: top;
-	height: 60px;
+	height: 80px;
 }
-
 #yelpLink {
 	color: #EA242F;
 	text-decoration: none;
@@ -135,12 +137,6 @@ button:focus {
 	top: 440px;
 	right: 290px;
 }
-#crab {
-	height: 39px;
-	width: 52px;
-	top: 280px;
-	right: 725px;
-}
 #dimsum {
 	height: 50px;
 	width: 50px;
@@ -153,6 +149,12 @@ button:focus {
 	transform: rotate(90deg);
 	top: 290px;
 	right: 10px;
+}
+#lobster {
+	height: 39px;
+	width: 52px;
+	top: 285px;
+	right: 725px;
 }
 #pizza {
 	height: 60px;
@@ -404,20 +406,6 @@ button:focus {
 	right: 468px;
 }
 
-/*exclamationPoint CSS*/
-#exclamationPointDiv {
-	height: 32px;
-	width: 35px;
-	display: none;
-	position: absolute;
-	top: 100px;
-	right: 700px;
-}
-#exclamationPointImage {
-	height: 100%;
-	width:100%;
-}
-
 /*MOUSE DIV CSS*/
 #mouse {
 	height: 50px;
@@ -425,7 +413,7 @@ button:focus {
 	top: -40px;
 	right: 650px;
 	position: absolute;
-	/*display: none;*/
+	display: none;
 	-webkit-animation-name: twitchSlow;
 	-webkit-animation-duration: 0.8s;
 	-webkit-transform-origin:50% 50%;
@@ -465,7 +453,7 @@ button:focus {
 }
 
 /*media queries*/
-@media (max-width: 933px) {
+@media (max-width: 983px) {
   #gameName {
     display: none;
   }
@@ -475,4 +463,9 @@ button:focus {
   #map {
   	margin-left: 0px;
   }
+}
+@media (max-width: 595px) {
+	#adventureDetails {
+		height: 100px;
+	}
 }

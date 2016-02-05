@@ -1,12 +1,14 @@
 function init(){
-	$('button').on('click', newGame);
+	$('#newAdventureButton').on('click', newGame);
+	$('#replayButton').on('click', replayGame);
 	//make nodes clickable and game winnable
-	loadClickEventListeners();
+		loadClickEventListeners();
 }
 // global variables
 var hasStarted = false;
 var hasWon = false;
 var arrayOfFunctions = [
+			setPretzelAdventure,
 			setBeerAdventure,
 			setBrownieAdventure,
 			setBurgerAdventure,
@@ -14,26 +16,21 @@ var arrayOfFunctions = [
 			setCheeseAdventure,
 			setChowderAdventure,
 			setCoffeeAdventure,
-			setCrabAdventure,
 			setDimsumAdventure,
 			setHotdogAdventure,
+			setLobsterAdventure,
 			setPizzaAdventure,
-			setPretzelAdventure,
 			setSushiAdventure];
 var winningStation;
 var currentStation;
 var yelpLink;
 var newMouseLatitude;
 var newMouseLongitude;
-
-
-
+var currentAdventure;
 
 function newGame() {
 	hasStarted = true;
 	hasWon = false;
-	//make exclamation point invisible with new game
-	$('#exclamationPointDiv').css({'display' : 'none'});
 	//make all food icons invisible with new game
 	$('.food').css({'display': 'none'});
 	//make all instruction text black with new game
@@ -43,41 +40,48 @@ function newGame() {
 	$('#mouse').css({'-webkit-animation-name': 'twitchSlow'});
 	//display mouse at new location
 	$('#mouse').css({'display' : 'block', 'position' : 'absolute'});
+	//make mouse jump
 	mouseJump();
-
+	//clear moves made
+	sessionStorage.clear();
+	//make replay button disappear
+	$('#replayButton').css({'display' : 'none'});
 }
-
-function mouseJump(){
-	var jumpHeight = ((parseInt(newMouseLatitude) - 60).toString()) + "px";
-	console.log(jumpHeight);
-	$('#mouse').animate({'top' : jumpHeight}, 75); 
-	$('#mouse').animate({'top' : newMouseLatitude}, 75);
-	$('#mouse').animate({'top' : jumpHeight}, 75); 
-	$('#mouse').animate({'top' : newMouseLatitude}, 75); 
+function replayGame() {
+	hasStarted = true;
+	hasWon = false;
+	$('.food').css({'display': 'none'});
+	$('#adventureDetails').css({'color' : 'black'});
+	//set up board to replay previous adventure
+	currentAdventure();
+	$('#mouse').css({'-webkit-animation-name': 'twitchSlow'});
+	$('#mouse').css({'display' : 'block', 'position' : 'absolute'});
+	mouseJump();
+	sessionStorage.clear();
+	$('#replayButton').css({'display' : 'none'});
 }
 
 function selectNewAdventure() {
-	//make insructions black again
-	// $('#adventureDetails').css({'color' : 'balck'});
 	for (var i = arrayOfFunctions.length-1; i >= 0; i--) {
 		if (hasStarted) {
+			currentAdventure = arrayOfFunctions[i];
 			arrayOfFunctions[i]();
 			arrayOfFunctions.pop();
 			hasStarted = false;
 		}
 		if(arrayOfFunctions.length===0) {
-			arrayOfFunctions.push(setBeerAdventure,
+			arrayOfFunctions.push(setPretzelAdventure,
+				setBeerAdventure,
 				setBrownieAdventure,
 				setBurgerAdventure,
 				setBurritoAdventure,
 				setCheeseAdventure,
 				setChowderAdventure,
 				setCoffeeAdventure,
-				setCrabAdventure,
 				setDimsumAdventure,
 				setHotdogAdventure,
+				setLobsterAdventure,
 				setPizzaAdventure,
-				setPretzelAdventure,
 				setSushiAdventure);
 		}
 	}
@@ -104,14 +108,13 @@ function completeMove(targetElement) {
 			adjustClasses(targetElement);
 			//get rid of invalid move alerts
 			$('#invalidMove').css({'color' : 'black', 'font-size' : '16px'});
-			$('#exclamationPointDiv').css({'display' : 'none'});
 			//lets mouse win if the current station it navigated to is the winning station
 			letMouseWin(targetElement);
 	//else if they do not belong to the same line, alert that they go to transfer station
 	} else {
-		//play indignant mouse sound
+		//play indignant mouse sound (placed here so it plays sooner)
 		playSound('http://www.bigwood.pwp.blueyonder.co.uk/media/sounds/WAVS/animals/mouse%20squeak.wav');
-		//display text and image alerts
+		//display text and animation alerts
 		invalidMoveAlert();
 	}
 } 
@@ -121,6 +124,8 @@ function moveMouse(targetElement) {
 	newMouseLatitude = (parseInt($(targetElement).css('top'))-15).toString() + "px";
 	newMouseLongitude = (parseInt($(targetElement).css('right'))-8).toString() + "px";
 	$('#mouse').css({'top' : newMouseLatitude, 'right' : newMouseLongitude});
+	//count number moves made
+	countMovesMade();
 }
 
 function adjustClasses(targetElement) {
@@ -133,33 +138,54 @@ function adjustClasses(targetElement) {
 function letMouseWin(targetElement){
 	var currentStation = targetElement;
 	if (currentStation == winningStation) {
-		moveMouse(targetElement);
 		$('.food').css({'display' : 'none'});
 		showWinnerMessage();
 		hasWon = true;
-		playSound('http://www.flan4u.com/downloads/Wave-files/sound-effects/mouse2.wav');
 		$('#mouse').css({'-webkit-animation-name': 'twitchFast'});
+		playSound('http://www.flan4u.com/downloads/Wave-files/sound-effects/mouse2.wav');
 	}
 }
 
 function showWinnerMessage(){
-	$('#adventureDetails').html("<span id='congratulations'>Congratulations! You have won the game!</span><br>Click <a id='yelpLink' target='_blank' href='#'>here</a> to find out about other restaurants in the area.<br>Click new game to send your mouse on another adventure!");
+	$('#replayButton').css({'display' : 'inline-block'});
+	$('#adventureDetails').html("<span id='congratulations'>Congratulations! You won the game with " + sessionStorage.movesMade + " moves!<br>Can you get him there even faster?</span> Click the replay adventure button to find out!<br>Pssst... click <a id='yelpLink' target='_blank' href='#'>here</a> to find out about other restaurants in the area.");
 	$('#congratulations').css({'color' : '#EA242F'});
 	$('#yelpLink').attr('href', yelpLink);
 }
 
 function invalidMoveAlert() {
-		//turn text in instructions red
 		$('#invalidMove').css({'color' : '#EA242F', 'font-size' : '16px'});
-		//have an exclamation point pop up over the mouse to alert an invalid move
-		var exclamationPointLatitude = (parseInt($('#mouse').css('top'))-42).toString() + "px";
-		var exclamationPointLongitude = (parseInt($('#mouse').css('right'))).toString() + "px";
-		$('#exclamationPointDiv').css({'display' : 'block', 'top': exclamationPointLatitude, 'right' : exclamationPointLongitude});
+		mouseShake();
+}
+
+function countMovesMade(){
+	if (sessionStorage.movesMade) {
+				sessionStorage.movesMade = Number(sessionStorage.movesMade)+1;
+			} else {
+				sessionStorage.movesMade = 1;
+			}
 }
 
 // sound effect function
 function playSound(soundfile) {
   document.getElementById("dummy").innerHTML= "<embed src='" + soundfile + "' hidden='true' autostart='true' loop='false'/>";
+}
+
+//animation functions 
+function mouseJump(){
+	var jumpHeight = ((parseInt(newMouseLatitude) - 60).toString()) + "px";
+	$('#mouse').animate({'top' : jumpHeight}, 75); 
+	$('#mouse').animate({'top' : newMouseLatitude}, 75);
+	$('#mouse').animate({'top' : jumpHeight}, 75); 
+	$('#mouse').animate({'top' : newMouseLatitude}, 75); 
+}
+
+function mouseShake(){
+	var shakeRight = ((parseInt(newMouseLongitude) - 30).toString()) + "px";
+	var shakeLeft = ((parseInt(newMouseLongitude) + 30).toString()) + "px";
+	$('#mouse').animate({'right' : shakeRight}, 75); 
+	$('#mouse').animate({'right' : shakeLeft}, 150);
+	$('#mouse').animate({'right' : newMouseLongitude}, 75); 
 }
 
 // adventure functions below
@@ -219,14 +245,6 @@ function setCoffeeAdventure() {
 	adjustClasses(document.querySelector('#union'));
 	$('#coffee').css({'display': 'block'});
 }
-function setCrabAdventure() {
-	$('#adventureDetails').html('<br>Direct mouse Land\'s End for some seafood!');
-	winningStation = document.querySelector('#landsEnd');	
-	yelpLink = 'http://www.yelp.com/search?find_desc=restaurants&find_loc=san+francisco&start=0&l=g:-122.49176502227783,37.78369529480428,-122.5175142288208,37.7633421384456';
-	moveMouse('#designDistrict');
-	adjustClasses(document.querySelector('#designDistrict'));
-	$('#crab').css({'display': 'block'});
-}
 function setDimsumAdventure() {
 	$('#adventureDetails').html('<br>Direct mouse the Outer Richmond for some dim sum!');
 	winningStation = document.querySelector('#theAvenues');
@@ -243,6 +261,14 @@ function setHotdogAdventure() {
 	adjustClasses(document.querySelector('#balboaPark'));
 	$('#hotdog').css({'display': 'block'});
 }
+function setLobsterAdventure() {
+	$('#adventureDetails').html('<br>Direct mouse Land\'s End for some seafood!');
+	winningStation = document.querySelector('#landsEnd');	
+	yelpLink = 'http://www.yelp.com/search?find_desc=restaurants&find_loc=san+francisco&start=0&l=g:-122.49176502227783,37.78369529480428,-122.5175142288208,37.7633421384456';
+	moveMouse('#designDistrict');
+	adjustClasses(document.querySelector('#designDistrict'));
+	$('#lobster').css({'display': 'block'});
+}
 function setPizzaAdventure() {
 	$('#adventureDetails').html('<br>Direct mouse to North Beach for a slice of pizza!');
 	winningStation = document.querySelector('#northBeach');
@@ -252,7 +278,7 @@ function setPizzaAdventure() {
 	$('#pizza').css({'display': 'block'});
 }
 function setPretzelAdventure() {
-	$('#adventureDetails').html('Direct mouse to Stonestown Galleria for a soft pretzel! <br>Who doesn\'t love soft pretzels??');
+	$('#adventureDetails').html('Direct mouse to Stonestown Galleria for a soft pretzel! <br>Because who doesn\'t love soft pretzels??');
 	winningStation = document.querySelector('#stonestown');
 	yelpLink = 'http://www.yelp.com/search?find_desc=restaurants&find_loc=San+Francisco,+CA&start=0&l=g:-122.44945049285889,37.74243970293853,-122.50094890594482,37.70170508361123';
 	moveMouse('#candlestick');
