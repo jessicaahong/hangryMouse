@@ -69,23 +69,16 @@ button:hover {
 #yelpLink:visited {
 	text-decoration: underline;
 }
-
-/*Map CSS*/
 #map {
 	height: 800px;
 	width: 800px;
 	position: relative;
-	z-index: 0;
 	margin: 0 auto;
 }
-
 #muniImage {
 	height: 100%;
 	width: 100%;
-	position: relative;
 }
-
-
 
 /*MOUSE DIV CSS*/
 #mouse {
@@ -234,17 +227,15 @@ button:hover {
 	right: 280px;
 }
 
-/*NODE DIV CSS*/
-/*Organized by order of colors of the rainbow, no repeats*/
+/*STATION DIV CSS*/
 .munistop {
 	height: 17px;
 	width: 17px;
 	position: absolute;
-/*	uncomment to make clickable node divs visible*/
 /*	background: red;*/
 }
 
-/*red line prize destinations and transfer stations*/
+/*red line stations*/
 #embarcadero {
 	top: 168px;
 	right: 80px;
@@ -286,7 +277,7 @@ button:hover {
 	right: 372px;
 }
 
-/*Orange line prize locations and transfer stations*/
+/*Orange line stations*/
 #northBeach {
 	top: 107px;
 	right: 135px;
@@ -336,7 +327,7 @@ button:hover {
 	right: 58px;
 }
 
-/*Yellow line prize locations and transfer stations*/
+/*Yellow line stations*/
 #candlestick {
 	top: 742px;
 	right: 90px;
@@ -402,7 +393,7 @@ button:hover {
 	right: 738px;
 }
 
-/*Green line prize locations and transfer stations*/
+/*Green line stations*/
 #nineteenthSt {
 	top: 423px;
 	right: 545px;
@@ -420,7 +411,7 @@ button:hover {
 	right: 533px;
 }
 
-/*Blue line prize locations and transfer stations*/
+/*Blue line stations*/
 #union {
 	top: 131px;
 	right: 236px;
@@ -450,7 +441,7 @@ button:hover {
 	right: 713px;
 }
 
-/*Purple line prize locations and transfer stations*/
+/*Purple line stations*/
 #church {
 	top: 375px;
 	right: 276px;

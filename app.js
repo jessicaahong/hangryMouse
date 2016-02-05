@@ -39,6 +39,7 @@ function newGame() {
 	selectNewAdventure();
 	//make stations clickable
 	loadClickEventListeners();
+	//make mouse shiver slowly
 	$('#mouse').css({'-webkit-animation-name': 'twitchSlow'});
 	//display mouse at new location
 	$('#mouse').css({'display' : 'block', 'position' : 'absolute'});
@@ -49,6 +50,7 @@ function newGame() {
 	//make replay button disappear
 	$('#replayButton').css({'display' : 'none'});
 }
+
 function replayGame() {
 	hasStarted = true;
 	hasWon = false;
@@ -94,11 +96,13 @@ function selectNewAdventure() {
 function loadClickEventListeners() {
 	$('.munistop').on('click', activate);
 }
+
 function activate() {
 	if (!hasWon) {
 			completeMove(event.target);
 		}
 }
+
 function completeMove(targetElement) {
 	//if mouse and new muni station are part of the same line, move mouse and change its classes
 	if (($('#mouse').hasClass('redLine') && $(targetElement).hasClass('redLine')) ||
@@ -160,7 +164,7 @@ function showWinnerMessage(){
 
 function invalidMoveAlert() {
 		$('#invalidMove').css({'color' : '#EA242F', 'font-size' : '16px'});
-		mouseShake();
+		angryMouseShake();
 }
 
 function countMovesMade(){
@@ -185,8 +189,7 @@ function mouseJump(){
 	$('#mouse').animate({'top' : lilJumpHeight}, 75); 
 	$('#mouse').animate({'top' : newMouseLatitude}, 75); 
 }
-
-function mouseShake(){
+function angryMouseShake(){
 	var shakeRight = ((parseInt(newMouseLongitude) - 30).toString()) + "px";
 	var shakeLeft = ((parseInt(newMouseLongitude) + 30).toString()) + "px";
 	$('#mouse').animate({'right' : shakeRight}, 75); 
