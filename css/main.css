@@ -460,9 +460,6 @@ button:focus {
   .instructions {
   	margin-left: 0px;
   }
-  #map {
-  	margin-left: 0px;
-  }
 }
 @media (max-width: 595px) {
 	#adventureDetails {
