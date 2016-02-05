@@ -37,75 +37,6 @@ function newGame() {
 	$('#mouse').css({'display' : 'block', 'position' : 'absolute'});
 }
 
-
-function loadClickEventListeners() {
-	$('.munistop').on('click', function() {
-		if (!hasWon) {
-			completeMove(event.target);
-		}
-	});
-}
-
-function completeMove(targetElement) {
-	//if mouse and new muni station are part of the same line, move mouse and change its classes
-	if (($('#mouse').hasClass('redLine') && $(targetElement).hasClass('redLine')) ||
-		($('#mouse').hasClass('orangeLine') && $(targetElement).hasClass('orangeLine')) ||
-		($('#mouse').hasClass('yellowLine') && $(targetElement).hasClass('yellowLine')) ||
-		($('#mouse').hasClass('greenLine') && $(targetElement).hasClass('greenLine')) ||
-		($('#mouse').hasClass('blueLine') && $(targetElement).hasClass('blueLine')) ||
-		($('#mouse').hasClass('purpleLine') && $(targetElement).hasClass('purpleLine'))) {
-			moveMouse(targetElement);
-			adjustClasses(targetElement);
-			//get rid of invalid move alerts
-			$('#invalidMove').css({'color' : 'black', 'font-size' : '16px'});
-			$('#exclamationPointDiv').css({'display' : 'none'});
-			//lets mouse win if the current station it navigated to is the winning station
-			letMouseWin(targetElement);
-	//else if they do not belong to the same line, alert that they go to transfer station
-	} else {
-		invalidMoveAlert();
-	}
-} 
-
-function letMouseWin(targetElement){
-	var currentStation = targetElement;
-	if (currentStation == winningStation) {
-		moveMouse(targetElement);
-		$('.food').css({'display' : 'none'});
-		showWinnerMessage();
-		hasWon = true;
-	}
-}
-
-function showWinnerMessage(){
-	$('#adventureDetails').html("<span id='congratulations'>Congratulations! You have won the game!</span><br>Click <a id='yelpLink' target='_blank' href='#'>here</a> to find out about other restaurants in the area!<br>Click new game to send your mouse on another adventure!");
-	$('#congratulations').css({'color' : '#EA242F'});
-	$('#yelpLink').attr('href', yelpLink);
-}
-
-function moveMouse(targetElement) {
-	//set mouse position so that it hovers over desired muni station
-	var newMouseLatitude = (parseInt($(targetElement).css('top'))-15).toString() + "px";
-	var newMouseLongitude = (parseInt($(targetElement).css('right'))-8).toString() + "px";
-	$('#mouse').css({'top' : newMouseLatitude, 'right' : newMouseLongitude});
-}
-
-function adjustClasses(targetElement) {
-			var classList = targetElement.classList.toString();
-			$('#mouse').removeClass();
-			$('#mouse').addClass(classList);
-			$('#mouse').removeClass('munistop');
-}
-
-function invalidMoveAlert() {
-		//turn text in instructions red
-		$('#invalidMove').css({'color' : '#EA242F', 'font-size' : '16px'});
-		//have an exclamation point pop up over the mouse to alert an invalid move
-		var exclamationPointLatitude = (parseInt($('#mouse').css('top'))-42).toString() + "px";
-		var exclamationPointLongitude = (parseInt($('#mouse').css('right'))).toString() + "px";
-		$('#exclamationPointDiv').css({'display' : 'block', 'top': exclamationPointLatitude, 'right' : exclamationPointLongitude});
-}
-
 function selectNewAdventure() {
 	//make insructions black again
 	// $('#adventureDetails').css({'color' : 'balck'});
@@ -133,8 +64,85 @@ function selectNewAdventure() {
 	}
 }
 
-// adventure functions below
+function loadClickEventListeners() {
+	$('.munistop').on('click', function() {
+		//if the mouse has won, he can no longer make moves on the board
+		if (!hasWon) {
+			completeMove(event.target);
+		}
+	});
+}
 
+function completeMove(targetElement) {
+	//if mouse and new muni station are part of the same line, move mouse and change its classes
+	if (($('#mouse').hasClass('redLine') && $(targetElement).hasClass('redLine')) ||
+		($('#mouse').hasClass('orangeLine') && $(targetElement).hasClass('orangeLine')) ||
+		($('#mouse').hasClass('yellowLine') && $(targetElement).hasClass('yellowLine')) ||
+		($('#mouse').hasClass('greenLine') && $(targetElement).hasClass('greenLine')) ||
+		($('#mouse').hasClass('blueLine') && $(targetElement).hasClass('blueLine')) ||
+		($('#mouse').hasClass('purpleLine') && $(targetElement).hasClass('purpleLine'))) {
+			moveMouse(targetElement);
+			adjustClasses(targetElement);
+			//get rid of invalid move alerts
+			$('#invalidMove').css({'color' : 'black', 'font-size' : '16px'});
+			$('#exclamationPointDiv').css({'display' : 'none'});
+			//lets mouse win if the current station it navigated to is the winning station
+			letMouseWin(targetElement);
+	//else if they do not belong to the same line, alert that they go to transfer station
+	} else {
+		//play indignant mouse sound
+		playSound('http://www.bigwood.pwp.blueyonder.co.uk/media/sounds/WAVS/animals/mouse%20squeak.wav');
+		//display text and image alerts
+		invalidMoveAlert();
+	}
+} 
+
+function moveMouse(targetElement) {
+	//set mouse position so that it hovers over desired muni station
+	var newMouseLatitude = (parseInt($(targetElement).css('top'))-15).toString() + "px";
+	var newMouseLongitude = (parseInt($(targetElement).css('right'))-8).toString() + "px";
+	$('#mouse').css({'top' : newMouseLatitude, 'right' : newMouseLongitude});
+}
+
+function adjustClasses(targetElement) {
+			var classList = targetElement.classList.toString();
+			$('#mouse').removeClass();
+			$('#mouse').addClass(classList);
+			$('#mouse').removeClass('munistop');
+}
+
+function letMouseWin(targetElement){
+	var currentStation = targetElement;
+	if (currentStation == winningStation) {
+		moveMouse(targetElement);
+		$('.food').css({'display' : 'none'});
+		showWinnerMessage();
+		hasWon = true;
+		playSound('http://www.flan4u.com/downloads/Wave-files/sound-effects/mouse2.wav');
+	}
+}
+
+function showWinnerMessage(){
+	$('#adventureDetails').html("<span id='congratulations'>Congratulations! You have won the game!</span><br>Click <a id='yelpLink' target='_blank' href='#'>here</a> to find out about other restaurants in the area.<br>Click new game to send your mouse on another adventure!");
+	$('#congratulations').css({'color' : '#EA242F'});
+	$('#yelpLink').attr('href', yelpLink);
+}
+
+function invalidMoveAlert() {
+		//turn text in instructions red
+		$('#invalidMove').css({'color' : '#EA242F', 'font-size' : '16px'});
+		//have an exclamation point pop up over the mouse to alert an invalid move
+		var exclamationPointLatitude = (parseInt($('#mouse').css('top'))-42).toString() + "px";
+		var exclamationPointLongitude = (parseInt($('#mouse').css('right'))).toString() + "px";
+		$('#exclamationPointDiv').css({'display' : 'block', 'top': exclamationPointLatitude, 'right' : exclamationPointLongitude});
+}
+
+// sound effect function
+function playSound(soundfile) {
+  document.getElementById("dummy").innerHTML= "<embed src='" + soundfile + "' hidden='true' autostart='true' loop='false'/>";
+}
+
+// adventure functions below
 function setBeerAdventure() {
 	$('#adventureDetails').html('<br>Direct mouse to Dogpatch to grab some beers with friends!');
 	winningStation = document.querySelector('#dogpatch');
@@ -239,21 +247,3 @@ function setSushiAdventure(){
 	adjustClasses(document.querySelector('#stonestown'));
 	$('#sushi').css({'display' : 'block'});	
 }
-
-
-	// function getRandomAdventure(){
-	// 	var min = 0;
-	// 	var max = arrayOfFunctions.length;
-	// 	arrayOfFunctions[(Math.floor(Math.random() * (max-min)) + min)]();
-	// }
-	// getRandomAdventure();
-
-	// 	$("button").hover( function() {
-	// 	$('#adventureDetails').toggleClass("highLight");
- //    	$('#adventureDetails').html("click the new game button to start a new adventure.");
- //    	$('#adventureDetails').css({'color' : '#EA242F'});
-	// },
-	// function() {
-	// 	$('#adventureDetails').toggleClass("highLight");
-	// 	$('#adventureDetails').html(originalMessage);
-	// });
