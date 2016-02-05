@@ -31,6 +31,8 @@ function newGame() {
 	$('#exclamationPointDiv').css({'display' : 'none'});
 	//make all food icons invisible with new game
 	$('.food').css({'display': 'none'});
+	//make all instruction text black with new game
+	$('#adventureDetails').css({'color' : 'black'});
 	//select new adventure
 	selectNewAdventure();
 	//display mouse at new location

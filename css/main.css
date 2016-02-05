@@ -22,7 +22,6 @@ button:focus {
 	outline: 0;
 }
 .instructions{
-/*	margin-left: 100px;*/
 	text-align: center;
 }
 .text { 
@@ -41,11 +40,6 @@ button:focus {
 #yelpLink:visited {
 	text-decoration: underline;
 }
-/*#adventureDetails:hover {
-	margin: 0px 10px;
-	display: inline-block;
-
-}*/
 #gameName {
 	color: white;
 	font-size: 45px;
@@ -81,7 +75,6 @@ button:focus {
 	width: 800px;
 	position: relative;
 	z-index: 0;
-/*	margin-left: 100px;*/
 	margin: 0 auto;
 }
 
@@ -183,13 +176,15 @@ button:focus {
 
 /*NODE DIV CSS*/
 /*Organized by order of colors of the rainbow, no repeats*/
-/*red line prize destinations and transfer stations*/
 .munistop {
 	height: 17px;
 	width: 17px;
 	position: absolute;
+/*	uncomment to make clickable node divs visible*/
 /*	background: red;*/
 }
+
+/*red line prize destinations and transfer stations*/
 #embarcadero {
 	top: 168px;
 	right: 80px;
@@ -232,7 +227,6 @@ button:focus {
 }
 
 /*Orange line prize locations and transfer stations*/
-
 #northBeach {
 	top: 107px;
 	right: 135px;
@@ -365,6 +359,7 @@ button:focus {
 	top: 693px;
 	right: 533px;
 }
+
 /*Blue line prize locations and transfer stations*/
 #union {
 	top: 131px;
@@ -394,6 +389,7 @@ button:focus {
 	top: 423px;
 	right: 713px;
 }
+
 /*Purple line prize locations and transfer stations*/
 #church {
 	top: 375px;
@@ -421,6 +417,7 @@ button:focus {
 	height: 100%;
 	width:100%;
 }
+
 /*MOUSE DIV CSS*/
 #mouse {
 	height: 50px;
@@ -428,7 +425,7 @@ button:focus {
 	top: -40px;
 	right: 650px;
 	position: absolute;
-/*	display: none;*/
+	display: none;
 	-webkit-animation-name: spaceboots;
 	-webkit-animation-duration: 0.8s;
 	-webkit-transform-origin:50% 50%;
@@ -438,7 +435,6 @@ button:focus {
 #mouseImage{
 	height: 100%;
 	width: 100%;
-	z-index: 3;
 }
 
 @-webkit-keyframes spaceboots {
