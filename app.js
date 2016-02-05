@@ -23,6 +23,11 @@ var arrayOfFunctions = [
 var winningStation;
 var currentStation;
 var yelpLink;
+var newMouseLatitude;
+var newMouseLongitude;
+
+
+
 
 function newGame() {
 	hasStarted = true;
@@ -35,8 +40,20 @@ function newGame() {
 	$('#adventureDetails').css({'color' : 'black'});
 	//select new adventure
 	selectNewAdventure();
+	$('#mouse').css({'-webkit-animation-name': 'twitchSlow'});
 	//display mouse at new location
 	$('#mouse').css({'display' : 'block', 'position' : 'absolute'});
+	mouseJump();
+
+}
+
+function mouseJump(){
+	var jumpHeight = ((parseInt(newMouseLatitude) - 60).toString()) + "px";
+	console.log(jumpHeight);
+	$('#mouse').animate({'top' : jumpHeight}, 75); 
+	$('#mouse').animate({'top' : newMouseLatitude}, 75);
+	$('#mouse').animate({'top' : jumpHeight}, 75); 
+	$('#mouse').animate({'top' : newMouseLatitude}, 75); 
 }
 
 function selectNewAdventure() {
@@ -101,8 +118,8 @@ function completeMove(targetElement) {
 
 function moveMouse(targetElement) {
 	//set mouse position so that it hovers over desired muni station
-	var newMouseLatitude = (parseInt($(targetElement).css('top'))-15).toString() + "px";
-	var newMouseLongitude = (parseInt($(targetElement).css('right'))-8).toString() + "px";
+	newMouseLatitude = (parseInt($(targetElement).css('top'))-15).toString() + "px";
+	newMouseLongitude = (parseInt($(targetElement).css('right'))-8).toString() + "px";
 	$('#mouse').css({'top' : newMouseLatitude, 'right' : newMouseLongitude});
 }
 
@@ -121,6 +138,7 @@ function letMouseWin(targetElement){
 		showWinnerMessage();
 		hasWon = true;
 		playSound('http://www.flan4u.com/downloads/Wave-files/sound-effects/mouse2.wav');
+		$('#mouse').css({'-webkit-animation-name': 'twitchFast'});
 	}
 }
 
