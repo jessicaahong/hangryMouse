@@ -1,9 +1,8 @@
 function init(){
 	$('#newAdventureButton').on('click', newGame);
 	$('#replayButton').on('click', replayGame);
-	//make nodes clickable and game winnable
-		loadClickEventListeners();
 }
+
 // global variables
 var hasStarted = false;
 var hasWon = false;
@@ -33,10 +32,13 @@ function newGame() {
 	hasWon = false;
 	//make all food icons invisible with new game
 	$('.food').css({'display': 'none'});
-	//make all instruction text black with new game
+	//make all text black with new game
 	$('#adventureDetails').css({'color' : 'black'});
+	$('#invalidMove').css({'color' : 'black'});
 	//select new adventure
 	selectNewAdventure();
+	//make stations clickable
+	loadClickEventListeners();
 	$('#mouse').css({'-webkit-animation-name': 'twitchSlow'});
 	//display mouse at new location
 	$('#mouse').css({'display' : 'block', 'position' : 'absolute'});
@@ -54,6 +56,7 @@ function replayGame() {
 	$('#adventureDetails').css({'color' : 'black'});
 	//set up board to replay previous adventure
 	currentAdventure();
+	loadClickEventListeners();
 	$('#mouse').css({'-webkit-animation-name': 'twitchSlow'});
 	$('#mouse').css({'display' : 'block', 'position' : 'absolute'});
 	mouseJump();
@@ -64,6 +67,7 @@ function replayGame() {
 function selectNewAdventure() {
 	for (var i = arrayOfFunctions.length-1; i >= 0; i--) {
 		if (hasStarted) {
+			//select new adventure
 			currentAdventure = arrayOfFunctions[i];
 			arrayOfFunctions[i]();
 			arrayOfFunctions.pop();
@@ -88,14 +92,13 @@ function selectNewAdventure() {
 }
 
 function loadClickEventListeners() {
-	$('.munistop').on('click', function() {
-		//if the mouse has won, he can no longer make moves on the board
-		if (!hasWon) {
+	$('.munistop').on('click', activate);
+}
+function activate() {
+	if (!hasWon) {
 			completeMove(event.target);
 		}
-	});
 }
-
 function completeMove(targetElement) {
 	//if mouse and new muni station are part of the same line, move mouse and change its classes
 	if (($('#mouse').hasClass('redLine') && $(targetElement).hasClass('redLine')) ||
@@ -137,12 +140,14 @@ function adjustClasses(targetElement) {
 
 function letMouseWin(targetElement){
 	var currentStation = targetElement;
+	console.log(currentStation);
 	if (currentStation == winningStation) {
 		$('.food').css({'display' : 'none'});
 		showWinnerMessage();
 		hasWon = true;
 		$('#mouse').css({'-webkit-animation-name': 'twitchFast'});
 		playSound('http://www.flan4u.com/downloads/Wave-files/sound-effects/mouse2.wav');
+		$('.munistop').off('click', activate);
 	}
 }
 
@@ -173,10 +178,11 @@ function playSound(soundfile) {
 
 //animation functions 
 function mouseJump(){
-	var jumpHeight = ((parseInt(newMouseLatitude) - 60).toString()) + "px";
-	$('#mouse').animate({'top' : jumpHeight}, 75); 
-	$('#mouse').animate({'top' : newMouseLatitude}, 75);
-	$('#mouse').animate({'top' : jumpHeight}, 75); 
+	var bigJumpHeight = ((parseInt(newMouseLatitude) - 60).toString()) + "px";
+	var lilJumpHeight = ((parseInt(newMouseLatitude) - 40).toString()) + "px";
+	$('#mouse').animate({'top' : bigJumpHeight}, 95); 
+	$('#mouse').animate({'top' : newMouseLatitude}, 95);
+	$('#mouse').animate({'top' : lilJumpHeight}, 75); 
 	$('#mouse').animate({'top' : newMouseLatitude}, 75); 
 }
 

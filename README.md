@@ -33,7 +33,7 @@ No installation necessary! Click here to play: http://navigator-jessie-54355.bit
 
 #Unsolved Problems
 
-Do NOT click on the map before pressing new game!
+Create a function that generates setXAdventure functions (blargh)
 
 #Features To Be Added
 
