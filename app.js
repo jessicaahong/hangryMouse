@@ -157,7 +157,7 @@ function letMouseWin(targetElement){
 
 function showWinnerMessage(){
 	$('#replayButton').css({'display' : 'inline-block'});
-	$('#adventureDetails').html("<span id='congratulations'>Congratulations! You won the game with " + sessionStorage.movesMade + " moves!<br></span>Can you get him there even faster? Click the replay adventure button to find out!<br>Pssst... click <a id='yelpLink' target='_blank' href='#'>here</a> to find out about other restaurants in the area.");
+	$('#adventureDetails').html("<span id='congratulations'>Congratulations! You won the game with " + sessionStorage.movesMade + " clicks!<br></span>Can you get him there even faster? Click the replay adventure button to find out!<br>Pssst... click <a id='yelpLink' target='_blank' href='#'>here</a> to find out about other restaurants in the area.");
 	$('#congratulations').css({'color' : '#EA242F'});
 	$('#yelpLink').attr('href', yelpLink);
 }
