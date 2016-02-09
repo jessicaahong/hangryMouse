@@ -1,6 +1,6 @@
 function Food(options){
 	this.defaultMessage = "there has been an error"
-	this.name           = options.name;
+	this.name           = options.name           || this.defaultMessage;
 	this.message        = options.message        || this.defaultMessage;
 	this.winningStation = options.winningStation || this.defaultMessage;
 	this.yelpLink       = options.yelpLink       || this.defaultMessage;
