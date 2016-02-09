@@ -1,3 +1,5 @@
+// I didn't test this out, so its just an example. 
+
 function Food(options){
 	this.defaultMessage = "there has been an error"
 	this.name           = options.name           || this.defaultMessage;
