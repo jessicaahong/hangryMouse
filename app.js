@@ -1,11 +1,24 @@
+// Hey Jessie! Amazing job on project 1! This game is creative, looks great, and has a nice UX.
+// Your code is nice and modular and well organized!
+// I left some notes in line on how this could be improved even more :)
+
+
+// We've been teaching using doc ready, which takes the script out of the html,
+// which I think is a little better. But other than that, this is great :)
 function init(){
 	$('#newAdventureButton').on('click', newGame);
 	$('#replayButton').on('click', replayGame);
 }
 
+// global variables are never great to have. Object oriented code encapsulates them as properties
+// of objects, so you would have myGame.hasStarted = false.
+// Its totally fine that you didn't do OOP here, as you already had a lot on your plate to make this
+// work, just letting you know. :)
+
 // global variables
 var hasStarted = false;
 var hasWon = false;
+// This is a creative solution that I like very much.
 var arrayOfFunctions = [
 			setPretzelAdventure,
 			setBeerAdventure,
@@ -28,13 +41,16 @@ var newMouseLongitude;
 var currentAdventure;
 
 function newGame() {
+  // hasStarted and hasWon could probably be locally scoped and passed around as arguments!
 	hasStarted = true;
 	hasWon = false;
+	// great comments here.
 	//make all food icons invisible with new game
 	$('.food').css({'display': 'none'});
 	//make all text black with new game
 	$('#adventureDetails').css({'color' : 'black'});
 	$('#invalidMove').css({'color' : 'black'});
+	// very well named functions too!
 	//select new adventure
 	selectNewAdventure();
 	//make stations clickable
@@ -62,10 +78,12 @@ function replayGame() {
 	$('#mouse').css({'-webkit-animation-name': 'twitchSlow'});
 	$('#mouse').css({'display' : 'block', 'position' : 'absolute'});
 	mouseJump();
+	// Good job getting sessionStorage in here!
 	sessionStorage.clear();
 	$('#replayButton').css({'display' : 'none'});
 }
-
+// This could be factored into two smaller functions, selectNewAdventure, which
+// calls a resetArrayOfFunctions() method if the length === 0
 function selectNewAdventure() {
 	for (var i = arrayOfFunctions.length-1; i >= 0; i--) {
 		if (hasStarted) {
@@ -92,7 +110,7 @@ function selectNewAdventure() {
 		}
 	}
 }
-
+// these  are beutiful little functions right here.
 function loadClickEventListeners() {
 	$('.munistop').on('click', activate);
 }
@@ -103,6 +121,11 @@ function activate() {
 		}
 }
 
+// I'd make a function to do everything inside of that if...
+// if(onLine()){
+// 	...
+// }
+// That would make this much easier to look at.
 function completeMove(targetElement) {
 	//if mouse and new muni station are part of the same line, move mouse and change its classes
 	if (($('#mouse').hasClass('redLine') && $(targetElement).hasClass('redLine')) ||
@@ -124,7 +147,7 @@ function completeMove(targetElement) {
 		//display text and animation alerts
 		invalidMoveAlert();
 	}
-} 
+}
 
 function moveMouse(targetElement) {
 	//set mouse position so that it hovers over desired muni station
@@ -142,11 +165,14 @@ function adjustClasses(targetElement) {
 			$('#mouse').removeClass('munistop');
 }
 
+// even the stuff that runs if (currentStation == winningStation) COULD be factored
+// into its own method
 function letMouseWin(targetElement){
 	var currentStation = targetElement;
 	console.log(currentStation);
 	if (currentStation == winningStation) {
 		$('.food').css({'display' : 'none'});
+		// well done doing that here though!
 		showWinnerMessage();
 		hasWon = true;
 		$('#mouse').css({'-webkit-animation-name': 'twitchFast'});
@@ -180,22 +206,26 @@ function playSound(soundfile) {
   document.getElementById("dummy").innerHTML= "<embed src='" + soundfile + "' hidden='true' autostart='true' loop='false'/>";
 }
 
-//animation functions 
+//animation functions
 function mouseJump(){
 	var bigJumpHeight = ((parseInt(newMouseLatitude) - 60).toString()) + "px";
 	var lilJumpHeight = ((parseInt(newMouseLatitude) - 40).toString()) + "px";
-	$('#mouse').animate({'top' : bigJumpHeight}, 95); 
+	$('#mouse').animate({'top' : bigJumpHeight}, 95);
 	$('#mouse').animate({'top' : newMouseLatitude}, 95);
-	$('#mouse').animate({'top' : lilJumpHeight}, 75); 
-	$('#mouse').animate({'top' : newMouseLatitude}, 75); 
+	$('#mouse').animate({'top' : lilJumpHeight}, 75);
+	$('#mouse').animate({'top' : newMouseLatitude}, 75);
 }
 function angryMouseShake(){
 	var shakeRight = ((parseInt(newMouseLongitude) - 30).toString()) + "px";
 	var shakeLeft = ((parseInt(newMouseLongitude) + 30).toString()) + "px";
-	$('#mouse').animate({'right' : shakeRight}, 75); 
+	$('#mouse').animate({'right' : shakeRight}, 75);
 	$('#mouse').animate({'right' : shakeLeft}, 150);
-	$('#mouse').animate({'right' : newMouseLongitude}, 75); 
+	$('#mouse').animate({'right' : newMouseLongitude}, 75);
 }
+
+// As I'm sure you know from writing all of this out, this isn't very dry. 
+// I created another file set-adventure-refactor.js where I show an example
+// of how this might be refactored into a single method :)
 
 // adventure functions below
 function setBeerAdventure() {
@@ -257,7 +287,7 @@ function setCoffeeAdventure() {
 function setDimsumAdventure() {
 	$('#adventureDetails').html('<br>Direct mouse the Outer Richmond for some dim sum!');
 	winningStation = document.querySelector('#theAvenues');
-	yelpLink = 'http://www.yelp.com/search?find_desc=dim+sum&find_loc=san+francisco&start=0&l=g:-122.47189521789551,37.78925681551992,-122.49764442443848,37.76890519045137';	
+	yelpLink = 'http://www.yelp.com/search?find_desc=dim+sum&find_loc=san+francisco&start=0&l=g:-122.47189521789551,37.78925681551992,-122.49764442443848,37.76890519045137';
 	moveMouse('#civicCenter');
 	adjustClasses(document.querySelector('#civicCenter'));
 	$('#dimsum').css({'display': 'block'});
@@ -272,7 +302,7 @@ function setHotdogAdventure() {
 }
 function setLobsterAdventure() {
 	$('#adventureDetails').html('<br>Direct mouse Land\'s End for some seafood!');
-	winningStation = document.querySelector('#landsEnd');	
+	winningStation = document.querySelector('#landsEnd');
 	yelpLink = 'http://www.yelp.com/search?find_desc=restaurants&find_loc=san+francisco&start=0&l=g:-122.49176502227783,37.78369529480428,-122.5175142288208,37.7633421384456';
 	moveMouse('#designDistrict');
 	adjustClasses(document.querySelector('#designDistrict'));
@@ -300,5 +330,5 @@ function setSushiAdventure(){
 	yelpLink = 'http://www.yelp.com/search?find_desc=sushi&find_loc=Japantown%2C+San+Francisco%2C+CA&ns=1';
 	moveMouse('#stonestown');
 	adjustClasses(document.querySelector('#stonestown'));
-	$('#sushi').css({'display' : 'block'});	
+	$('#sushi').css({'display' : 'block'});
 }
