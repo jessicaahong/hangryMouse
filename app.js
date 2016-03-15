@@ -6,6 +6,7 @@ function init(){
 // global variables
 var hasStarted = false;
 var hasWon = false;
+var clicksMade = 0;
 var arrayOfFunctions = [
 			setPretzelAdventure,
 			setBeerAdventure,
@@ -46,7 +47,7 @@ function newGame() {
 	//make mouse jump
 	mouseJump();
 	//clear moves made
-	sessionStorage.clear();
+	clicksMade = 0;
 	//make replay button disappear
 	$('#replayButton').css({'display' : 'none'});
 }
@@ -54,6 +55,7 @@ function newGame() {
 function replayGame() {
 	hasStarted = true;
 	hasWon = false;
+	//reset instuctional text CSS and hide previous prize image
 	$('.food').css({'display': 'none'});
 	$('#adventureDetails').css({'color' : 'black'});
 	//set up board to replay previous adventure
@@ -62,7 +64,7 @@ function replayGame() {
 	$('#mouse').css({'-webkit-animation-name': 'twitchSlow'});
 	$('#mouse').css({'display' : 'block', 'position' : 'absolute'});
 	mouseJump();
-	sessionStorage.clear();
+	clicksMade = 0;
 	$('#replayButton').css({'display' : 'none'});
 }
 
@@ -117,12 +119,14 @@ function completeMove(targetElement) {
 			$('#invalidMove').css({'color' : 'black', 'font-size' : '16px'});
 			//lets mouse win if the current station it navigated to is the winning station
 			letMouseWin(targetElement);
-	//else if they do not belong to the same line, alert that they go to transfer station
+	//else if they do not belong to the same line, alert that they need to go to a transfer station
 	} else {
 		//play indignant mouse sound (placed here so it plays sooner)
 		playSound('http://www.bigwood.pwp.blueyonder.co.uk/media/sounds/WAVS/animals/mouse%20squeak.wav');
 		//display text and animation alerts
 		invalidMoveAlert();
+		//add a move made
+		clicksMade += 1;
 	}
 } 
 
@@ -132,52 +136,49 @@ function moveMouse(targetElement) {
 	newMouseLongitude = (parseInt($(targetElement).css('right'))-8).toString() + "px";
 	$('#mouse').css({'top' : newMouseLatitude, 'right' : newMouseLongitude});
 	//count number moves made
-	countMovesMade();
+	clicksMade += 1;
 }
 
 function adjustClasses(targetElement) {
-			var classList = targetElement.classList.toString();
-			$('#mouse').removeClass();
-			$('#mouse').addClass(classList);
-			$('#mouse').removeClass('munistop');
+	var classList = targetElement.classList.toString();
+	//remove mouse's old muni line classes and give him his new muni line classes
+	$('#mouse').removeClass();
+	$('#mouse').addClass(classList);
+	$('#mouse').removeClass('munistop');
 }
 
 function letMouseWin(targetElement){
+	//set var currentStation to the station that the mouse is at
 	var currentStation = targetElement;
 	console.log(currentStation);
 	if (currentStation == winningStation) {
+		//make prize image disappear, display winner messages, initiate sounds/animation
 		$('.food').css({'display' : 'none'});
 		showWinnerMessage();
 		hasWon = true;
 		$('#mouse').css({'-webkit-animation-name': 'twitchFast'});
 		playSound('http://www.flan4u.com/downloads/Wave-files/sound-effects/mouse2.wav');
+		//turn off click event listeners on all muni stations until new game started
 		$('.munistop').off('click', activate);
 	}
 }
 
 function showWinnerMessage(){
 	$('#replayButton').css({'display' : 'inline-block'});
-	$('#adventureDetails').html("<span id='congratulations'>Congratulations! You won the game with " + sessionStorage.movesMade + " clicks!<br></span>Can you get him there even faster? Click the replay adventure button to find out!<br>Pssst... click <a id='yelpLink' target='_blank' href='#'>here</a> to find out about other restaurants in the area.");
+	$('#adventureDetails').html("<span id='congratulations'>Congratulations! You won the game with " + clicksMade + " clicks!<br></span>Can you get him there even faster? Click the replay adventure button to find out!<br>Pssst... click <a id='yelpLink' target='_blank' href='#'>here</a> to find out about other restaurants in the area.");
 	$('#congratulations').css({'color' : '#EA242F'});
 	$('#yelpLink').attr('href', yelpLink);
 }
 
 function invalidMoveAlert() {
-		$('#invalidMove').css({'color' : '#EA242F', 'font-size' : '16px'});
-		angryMouseShake();
-}
-
-function countMovesMade(){
-	if (sessionStorage.movesMade) {
-				sessionStorage.movesMade = Number(sessionStorage.movesMade)+1;
-			} else {
-				sessionStorage.movesMade = 1;
-			}
+	//highlight instructional text and make mouse shake
+	$('#invalidMove').css({'color' : '#EA242F', 'font-size' : '16px'});
+	angryMouseShake();
 }
 
 // sound effect function
 function playSound(soundfile) {
-  document.getElementById("dummy").innerHTML= "<embed src='" + soundfile + "' hidden='true' autostart='true' loop='false'/>";
+  document.getElementById("dummy").innerHTML= "<embed src='" + soundfile + "' hidden='true' loop='false'/>";
 }
 
 //animation functions 
@@ -199,11 +200,17 @@ function angryMouseShake(){
 
 // adventure functions below
 function setBeerAdventure() {
+	//customize instructional text
 	$('#adventureDetails').html('<br>Direct mouse to Dogpatch to grab some beers with friends!');
+	//set the winning station
 	winningStation = document.querySelector('#dogpatch');
+	//set the yelp link
 	yelpLink = 'http://www.yelp.com/search?find_desc=restaurants&find_loc=Dogpatch,+San+Francisco,+CA';
+	//move the mouse to the starting station
 	moveMouse('#nineteenthSt');
+	//adjust the mouse's classes to reflect those of his starting station
 	adjustClasses(document.querySelector('#nineteenthSt'));
+	//display the prize image
 	$('#beer').css({'display': 'block'});
 }
 function setBrownieAdventure() {

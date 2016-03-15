@@ -33,14 +33,13 @@ No installation necessary! Click here to play: http://navigator-jessie-54355.bit
 
 #Unsolved Problems
 
-Create a function that generates setXAdventure functions (blargh)
+Random bug with the click counter--sometimes displays incorrect number clicks (very difficult to replicate, has only happened a few times).
 
 #Features To Be Added
 
 <ul>
 	<li>Add animations to make mouse move along track as he goes from station to station</li>
-	<li>Add animation so mouse "falls" on the Muni station it starts at when new game is pressed</li>
-	<li>Update winner announcement so it also displays the fewest clicks possible to get to the current prize</li>
+	<li>Add animation so mouse "falls" from top of screen onto a Muni station when a new game is initiated</li>
 </ul>
 
 # Contributions
