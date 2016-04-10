@@ -2,15 +2,15 @@
 
 # Overview
 
-Play hangry mouse! a browser game for the masses.
+Play hangry mouse! A browser game for the masses.
 <br>Help the mouse find his next meal PRONTO!
 <br>Click to jump from station to station on the magical muni line.
-<br>You must visit a shared transfer station before switing muni lines!
+<br>You must visit a shared transfer station before switching muni lines!
 <br>Our hero is hungry, so try to find the most efficient route possible.
 
 #Development
 
-<b>Initial wireframe:</b>
+<b>Initial wireframes:</b>
 <br>
 <br>
 <img src="images/wireframe.png">
@@ -28,19 +28,8 @@ Technologies used include Javascript/HTML/CSS, <a href="http://jquery.com/">jQue
 
 # Installation
 
-No installation necessary! Click here to play: http://navigator-jessie-54355.bitballoon.com/
+No installation necessary! Click here to play: http://hangrymouse.bitballoon.com/
 <br>Hosted by BitBalloon!
-
-#Unsolved Problems
-
-Random bug with the click counter--sometimes displays incorrect number clicks (very difficult to replicate, has only happened a few times).
-
-#Features To Be Added
-
-<ul>
-	<li>Add animations to make mouse move along track as he goes from station to station</li>
-	<li>Add animation so mouse "falls" from top of screen onto a Muni station when a new game is initiated</li>
-</ul>
 
 # Contributions
 
